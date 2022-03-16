@@ -30,20 +30,16 @@
 </template>
 
 <script>
-import StockImgMeat from "@/assets/img/stock-meat.svg"
+import StockImgMeat from "@/assets/img/stock-meat.svg";
 export default {
-    props: ["items", "label"],
-setup (props) {
-    
-
-
+  props: ["items", "label"],
+  setup(props) {
     return {
-        StockImgMeat
-    }
-}
-}
+      StockImgMeat,
+    };
+  },
+};
 </script>
 
 <style>
-
 </style>
