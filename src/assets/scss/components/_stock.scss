@@ -40,7 +40,8 @@
   &__item {
     background: linear-gradient(90deg, #494544 0%, #504b4a 100%);
     border-radius: 10px;
-    min-width: 325px;
+    width: 440px;
+    height: 351px;
     cursor: pointer;
 
     &:first-child {
@@ -77,14 +78,13 @@
   &__title {
     font-style: normal;
     font-weight: 300;
-    font-size: 22px;
-    line-height: 25px;
+    font-size: 18px;
+    line-height: 21px;
     color: #ffffff;
   }
 
   &__weight {
     font-style: normal;
-    font-weight: normal;
     font-size: 12px;
     line-height: 14px;
     color: #ffffff;
@@ -92,7 +92,6 @@
 
   &__subtitle {
     font-style: normal;
-    font-weight: normal;
     font-size: 13px;
     line-height: 17px;
     color: #cfcfcf;
@@ -145,5 +144,5 @@ hr {
 }
 .col-4 {
   width: 33%;
-  padding-bottom: 50px;
+  // padding-bottom: 50px;
 }
