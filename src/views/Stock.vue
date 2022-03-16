@@ -1,6 +1,6 @@
 <template>
 <Header />
-<StockList/>
+<StockList />
 </template>
 
 <script>

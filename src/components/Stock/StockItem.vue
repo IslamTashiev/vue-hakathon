@@ -4,11 +4,11 @@
     <div class="col-4">
       <div class="stock__item">
         <div class="stock__image">
-          <img :src="StockImgMeat" alt="item-image" />
+          <img :src="item.image"/>
         </div>
         <div class="stock__description">
           <div class="stock__header">
-            <div class="stock__title">{{ label }}</div>
+            <div class="stock__title">{{ item.tatelName }}</div>
           </div>
           <div class="stock__subtitle">
             Самое время попробовать «Сырную» пиццу, «Маргариту», пиццу «Овощи и
@@ -27,18 +27,18 @@
 </template>
 
 <script>
-import StockImgMeat from "@/assets/images/stock-meat.svg";
-// import StockImgKombo from "@/assets/images/stock-meat.svg";
-// import StockImgSyrniki from "@/assets/images/stock-meat.svg";
+// import StockImgMeat from "@/assets/images/stock-meat.svg";
+// // import StockImgKombo from "@/assets/images/stock-meat.svg";
+// // import StockImgSyrniki from "@/assets/images/stock-meat.svg";
 export default {
-  props: ["label"],
+   props: {
+    item: {
+      type: Object,
+      reqired: true
+    }
+  },
   setup() {
     return {
-      StockImgMeat
-      // imgUrl:[
-      //   {id: 1,
-      //   image: StockImgMeat,}
-      // ]
     };
   },
 };
