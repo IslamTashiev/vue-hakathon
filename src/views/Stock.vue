@@ -1,15 +1,13 @@
 <template>
 <Header />
+<StockList/>
 </template>
 
 <script>
-
-import Header from "@/components/Header/Header.vue"
+import StockList from "@/components/Stock/StockList";
+import Header from "@/components/Header/Header.vue";
 
 export default {
-  components: {Header},
-  setup() {
-      
-  }
+  components: {Header,StockList},
 };
 </script>
