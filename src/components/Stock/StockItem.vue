@@ -33,7 +33,7 @@
 </template>
 
 <script>
-import StockImgMeat from "@/assets/img/stock-meat.svg";
+import StockImgMeat from "@/assets/images/stock-meat.svg";
 export default {
   props: ["items", "label"],
   setup(props) {
