@@ -4,7 +4,8 @@
         </div>
         <hr />
         <section class="stock__list">
-          <div class="stock__items">
+         <div class="container">
+            <div class="stock__items">
             <div class="col-4">
               <div class="stock__item">
                 <div class="stock__image">
@@ -27,6 +28,8 @@
               </div>
             </div>
             </div>
+         </div>
+        </section>
 </template>
 
 <script>
