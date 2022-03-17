@@ -41,9 +41,9 @@ export default {
       },
     ]);
 
-    const handleSubmit = (items) => {
-      items.value.sort(() => 0.5 - Math.random());
-      console.log(items.value);
+    // const handleSubmit = (items) => {
+    //   items.value.sort(() => 0.5 - Math.random());
+    //   console.log(items.value);
       // .sort(() => Math.random() - 0.5
     };
 
