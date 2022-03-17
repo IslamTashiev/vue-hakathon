@@ -1,9 +1,9 @@
 .contact {
   &__section {
-    // background: url("../../images/map-bg.png") center no-repeat;
-    background-size: cover;
-    // padding: 220px 0 40px;
-    min-height: 665px;
+    max-height: 500px;
+    @media (max-width: 4760px) {
+      max-height: 900px;
+    }
   }
 
   &__section-item {
@@ -18,15 +18,21 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      @media (max-width: 760px) {
+        margin-left: -60px;
+      }
     }
     .map-pointer {
+      cursor: pointer;
       animation-name: map;
       animation-duration: 2s;
       animation-iteration-count: infinite;
       transform: translateY(0);
-
       @media (max-width: 760px) {
-        display: none;
+        width: 50px;
+      }
+      @media (max-width: 4760px) {
+        margin: 190px;
       }
     }
     @keyframes map {
@@ -41,15 +47,16 @@
       }
     }
   }
+
   &__section-items {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 220px 0 40px;
+    padding: 50px 0 20px;
 
     @media (max-width: 760px) {
       flex-direction: column;
-      padding: 150px 0 40px;
+      padding: 50px 0 20px;
     }
   }
 
@@ -93,7 +100,9 @@
     max-width: 433px;
     // width: 433px;
     margin: 17px 0;
-
+    @media (max-width: 1025px) {
+      flex-direction: column;
+    }
     @media (max-width: 760px) {
       flex-direction: column;
     }
@@ -106,7 +115,9 @@
 
   &__footer-title {
     color: #ffffff;
-
+    @media (max-width: 1025px) {
+      margin-top: 10px;
+    }
     @media (max-width: 760px) {
       margin-top: 10px;
     }
@@ -127,7 +138,9 @@
 }
 .adress {
   padding: 15px 0 0 52px;
-
+  @media (max-width: 1025px) {
+    padding: 15px 0 0 32px;
+  }
   @media (max-width: 450px) {
     padding: 15px 0 0 32px;
   }

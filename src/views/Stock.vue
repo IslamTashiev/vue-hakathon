@@ -14,3 +14,11 @@ export default {
   components: {Header,StockList,Footer,Contacts},
 };
 </script>
+
+<style lang="scss" scoped>
+.contact {
+  &__section {
+     margin-top: -50px;
+  }
+}
+</style> 

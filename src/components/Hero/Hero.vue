@@ -18,7 +18,7 @@ export default {
 
 <style lang="scss">
 .hero {
-background: url("../../assets/images/hero.svg") center no-repeat;
+background: url("../../assets/images/hero.jpg") center no-repeat;
  background-size: cover;
 }
 </style>

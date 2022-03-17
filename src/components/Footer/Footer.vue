@@ -19,7 +19,7 @@
                 </div>
                 <ul class="footer__menu">
                     <li>О ресторане</li>
-                   <a href="stock.html"> <li>Акции</li></a>
+                   <a href="#"> <li>Акции</li></a>
                     <li>Возврат товара</li>
                     <li>Условия доставки</li>
                 </ul>

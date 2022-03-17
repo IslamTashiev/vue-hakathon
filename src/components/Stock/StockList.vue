@@ -1,8 +1,8 @@
 <template>
   <div class="container">
     <Title title="АКЦИИ" />
-    <hr />
   </div>
+   <hr />
   <div class="stock__container">
       <div class="stock__items">
         <StockItem v-for="item in items" :key="item.id" :item="item" />
