@@ -205,7 +205,7 @@ export default {
 
 <style lang="scss">
 .contact__section {
-background: url("../../assets/images/map-bg.svg") center no-repeat;
+background: url("../../assets/images/map-bg.jpg") center no-repeat;
  background-size: cover;
 }
 </style>
