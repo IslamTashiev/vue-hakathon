@@ -1,5 +1,8 @@
 <template>
-<Header />
+<div class="wrapper">
+  <Header />
+  
+</div>
 </template>
 
 <script>
