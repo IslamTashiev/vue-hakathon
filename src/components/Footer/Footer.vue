@@ -18,8 +18,8 @@
                     </ul>
                 </div>
                 <ul class="footer__menu">
-                    <li>О ресторане</li>
-                   <a href="#"> <li>Акции</li></a>
+                    <router-link :to="'/'"><li>О ресторане</li></router-link>
+                    <router-link :to="'/stock'"><li>Акции</li></router-link>
                     <li>Возврат товара</li>
                     <li>Условия доставки</li>
                 </ul>
