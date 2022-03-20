@@ -199,15 +199,12 @@
           </div>
         </div>
       </div>
-   <div class="cart__add-title">ДОБАВИТЬ К ЗАКАЗУ</div>
+      <div class="cart__add-title">ДОБАВИТЬ К ЗАКАЗУ</div>
 
-        <div class="cart__add">
-          <CartAdd />
-          <CartAdd />
-          <CartAdd />
-          <CartAdd />
-           </div>
-        <hr />
+      <div class="cart__add">
+        <CartAdd v-for="item in items" :key="item.id" :item="item" />
+      </div>
+      <hr />
       <div class="cart__price">
         <div class="cart__price-item">
           <b class="cart__price-finish">Итого: <span>500 ₽</span> </b>
@@ -225,9 +222,40 @@
 <script>
 import Button from "@/components/Buttons/Button.vue";
 import CartAdd from "@/components/Cart/CartAdd.vue";
+import AddImg from "@/assets/images/add-img.svg";
+// import AddUtka from "@/assets/images/add-.svg";
+import { ref } from "@vue/reactivity";
 
 export default {
-  components: { Button, CartAdd,},
+  components: { Button, CartAdd },
+  setup() {
+    const items = ref([
+      {
+        id: 2,
+        Named: "КВАС АНАНАСОВЫЙ",
+        image: AddImg,
+      },
+      {
+        id: 1,
+        Named: "ГРИСССИНИ",
+        image: AddImg,
+      },
+      {
+        id: 3,
+        Named: "ПИЦЦА ПЕППЕРОНИ",
+        image: AddImg,
+      },
+      {
+        id: 4,
+        Named: "ПИЦЦА СЫРНАЯ",
+        image: AddImg,
+      },
+    ]);
+
+    return {
+      items,
+    };
+  },
 };
 </script>
 
