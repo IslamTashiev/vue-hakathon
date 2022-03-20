@@ -1,6 +1,28 @@
 <template>
+<div v-if="false">
+  <Header />
   <router-view/>
+  <Footer />
+</div>
+<div v-else>
+  <Header />
+  <BurgerMenu />
+</div>
 </template>
+
+<script>
+import BurgerMenu from "@/components/Header/BurgerMenu"
+import Header from "@/components/Header/Header.vue"
+import Footer from "@/components/Footer/Footer.vue";
+
+export default {
+  components: {BurgerMenu,Header,Footer},
+  setup() {
+    
+  },
+}
+</script>
+
 
 <style lang="scss">
 @import "@/assets/scss/style.scss";
