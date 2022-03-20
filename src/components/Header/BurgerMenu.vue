@@ -1,5 +1,5 @@
 <template>
-    <div class="menu ">
+    <div class="menu" :class="{active: activeMenu}">
         <ul class="menu__list">
             <li
                 class="nav__menu_item"
@@ -11,7 +11,7 @@
                 {{item}}
             </li>
         </ul>
-        <Contacts  />
+        <Contacts />
     </div>
 </template>
 
@@ -21,6 +21,7 @@ import { ref } from '@vue/reactivity'
 import Contacts from "./Contacts"
 export default {
     components: {Contacts},
+    props: ["activeMenu"],
     setup() {
         const navItems = ["Холодные закуски","Горячие закуски","Мясные блюда","Супы","Рыбные блюда","Гриль меню","Фирменные блюда","Напитки"]
         const activeItem = ref(0)
@@ -48,6 +49,7 @@ export default {
     height: 100vh;
     background-color: #44403F;
     transition: .3s all ease;
+    z-index: 2;
 
     display: flex;
     flex-direction: column;
@@ -62,6 +64,7 @@ export default {
     .menu__list{
         border-bottom: 1px solid #666160;
         width: 100%;
+        padding-bottom: 30px;
         .nav__menu_item{
             margin-bottom: 13px;
             padding: 0;

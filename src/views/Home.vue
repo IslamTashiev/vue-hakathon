@@ -1,13 +1,13 @@
 <template>
 <!-- <div v-if="false" class="wrapper"> -->
-  <!-- <Header /> -->
+  <Header />
   <main>
     <Hero />
     <Nav />
     <ProductList />
     <Contacts/>
   </main>
-  <!-- <Footer /> -->
+  <Footer />
 <!-- </div> -->
 <!-- <div v-else>
   

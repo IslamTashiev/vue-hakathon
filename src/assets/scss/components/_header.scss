@@ -17,8 +17,22 @@
     .burger__menu {
       display: none;
       cursor: pointer;
+
+      p {
+        color: #fff;
+        font-style: normal;
+        font-weight: 300;
+        font-size: 12px;
+        line-height: 14px;
+        color: #ffffff;
+        margin-top: 7px;
+      }
+
       @media (max-width: 670px) {
-        display: block;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        z-index: 9;
       }
     }
   }

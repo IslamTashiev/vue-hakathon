@@ -75,7 +75,8 @@
           </div>
           <div class="contact__footer">
             <div class="contact__info">
-              <button class="btn contact__btn">ЗАБРОНИРОВАТЬ СТОЛ</button>
+              <Button text="ЗАБРОНИРОВАТЬ СТОЛ" class="contact__btn"/>
+              <Button className="btn-gray contact__btn-gray" text="ПРОЛОЖИТЬ МАРШРУТ" />
               <div class="contact__footer-title">
                 <h4>+7 (917) 510-57-59</h4>
                 <p>Звоните или оставляйте заявку</p>
@@ -197,15 +198,31 @@
 </template>
 
 <script>
+import Button from "@/components/Buttons/Button.vue";
 export default {
-
+  components: {Button},
 };
 
 </script>
 
-<style lang="scss">
-.contact__section {
-  background: url("../../assets/images/map-bg.jpg") center no-repeat;
-  background-size: cover;
+<style lang="scss" scoped>
+.contact{
+&__section {
+background: url("../../assets/images/map-bg.jpg") center no-repeat;
+ background-size: cover;
 }
+   &__btn {
+    padding: 21px 30px;
+    margin-right: 10px;
+  }
+    &__btn-gray {
+    padding: 21px 30px;
+    margin-right: 10px;
+  }
+}
+.btn-gray {
+    margin-top: 20px;
+  }
+
+
 </style>

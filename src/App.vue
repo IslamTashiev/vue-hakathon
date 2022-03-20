@@ -1,13 +1,13 @@
 <template>
-<div v-if="false">
-  <Header />
+<!-- <div v-if="true"> -->
+  <!-- <Header /> -->
   <router-view/>
-  <Footer />
-</div>
-<div v-else>
+  <!-- <Footer /> -->
+<!-- </div> -->
+<!-- <div v-else>
   <Header />
   <BurgerMenu />
-</div>
+</div> -->
 </template>
 
 <script>
