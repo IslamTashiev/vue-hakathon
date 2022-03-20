@@ -1,4 +1,13 @@
 .contact {
+  &__btn-gray {
+    display: none;
+    @media (max-width: 760px) {
+      display: block;
+    }
+    @media (max-width: 1025px) {
+      display: block;
+    }
+  }
   &__section {
     max-height: 500px;
     @media (max-width: 4760px) {
@@ -20,6 +29,9 @@
       justify-content: center;
       @media (max-width: 760px) {
         margin-left: -60px;
+        .contact__btn-gray {
+          display: block;
+        }
       }
     }
     .map-pointer {
@@ -29,10 +41,12 @@
       animation-iteration-count: infinite;
       transform: translateY(0);
       @media (max-width: 760px) {
+        // display: none;
         width: 50px;
       }
       @media (max-width: 4760px) {
-        margin: 190px;
+        margin: 100px;
+        
       }
     }
     @keyframes map {
@@ -108,10 +122,6 @@
     }
   }
 
-  &__btn {
-    padding: 21px 30px;
-    margin-right: 10px;
-  }
 
   &__footer-title {
     color: #ffffff;
