@@ -1,8 +1,10 @@
 <template>
-<Header />
- <Nav/>
-<CartItem/>
-<Footer />
+  <div class="wrapper">
+    <Header />
+    <Nav />
+    <CartItem />
+    <Footer />
+  </div>
 </template>
 
 <script>
@@ -11,7 +13,7 @@ import Footer from "@/components/Footer/Footer.vue";
 import CartItem from "@/components/Cart/CartItem.vue";
 import Nav from "@/components/Nav/Nav.vue";
 export default {
-  components: {Header,Footer,CartItem,Nav},
+  components: { Header, Footer, CartItem, Nav },
 };
 </script>
 

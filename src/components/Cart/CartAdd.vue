@@ -38,14 +38,13 @@ export default {
 <style lang="scss" scoped>
 .cart__add-items{
   position: relative;
-
   &::before{
     position: absolute;
     width: 1px;
     height: 100%;
     content: "";
     background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.2) 100%);
-    right: -12px;
+    right: 0px;
   }
    &:last-child {
       padding-bottom: 0;
@@ -53,7 +52,29 @@ export default {
         display: none;
       }
     }
-
-}
+ }
+    @media (max-width: 1230px) {
+          .cart__add-items{ 
+              &:last-child {
+      &::before {
+        display: block;
+      }
+    }
+            }
+          }
+    @media (max-width: 630px) {
+          .cart__add-items{ 
+      &::before {
+        display: none;
+      }
+      &:last-child {
+      padding-bottom: 0;
+      &::before {
+        display: none;
+      }
+    }
+    }
+            }
+    
 
 </style>

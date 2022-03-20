@@ -27,10 +27,6 @@
         </div>
       </div>
 
-
-
-
-
       <div class="cart__items">
         <div class="cart__item">
           <div class="item__left">
@@ -117,7 +113,7 @@
             </div>
           </div>
         </div>
-<div class="cart__item">
+        <div class="cart__item">
           <div class="item__left">
             <img
               class="cart__item__image"
@@ -203,19 +199,13 @@
           </div>
         </div>
       </div>
-
-
-
-
-
-
-      <div class="cart__add-title">ДОБАВИТЬ К ЗАКАЗУ</div>
-
+  <div class="cart__add-title"><h3>ДОБАВИТЬ К ЗАКАЗУ</h3></div>
       <div class="cart__add">
-        <CartAdd v-for="item in items" :key="item.id" :item="item" />
+        <CartAdd v-for="item in items" :key="item.id" :item="item" />  
       </div>
       <hr />
       <div class="cart__price">
+        <div class="cart__price-items">
         <div class="cart__price-item">
           <b class="cart__price-finish">Итого: <span>500 ₽</span> </b>
           <div class="cart__price-delivery">
@@ -225,6 +215,7 @@
         </div>
         <Button class="cart__price-btn" className="btn" text="Оформить заказ" />
       </div>
+        </div>
     </div>
   </main>
 </template>
@@ -271,9 +262,14 @@ export default {
 
 <style lang="scss" scoped>
 hr {
+  margin: 0 auto;
+  width: 1200px;
   position: relative;
   top: 40px;
-  left: 0;
+  left: 0px;
   border: 1px solid rgba(255, 255, 255, 0.1);
+  @media (max-width: 625px) {
+    display: none;
+  }
 }
 </style>
