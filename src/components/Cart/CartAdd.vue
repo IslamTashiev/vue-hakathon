@@ -36,4 +36,16 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.cart__add-items{
+  position: relative;
+
+  &::before{
+    position: absolute;
+    width: 1px;
+    height: 100%;
+    content: "";
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.2) 100%);
+    right: 0;
+  }
+}
 </style>
