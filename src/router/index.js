@@ -3,6 +3,7 @@ import Home from "../views/Home.vue";
 import Stock from "../views/Stock.vue";
 import Cart from "../views/Cart.vue";
 import ProductDetail from "../views/ProductDetail.vue";
+import PayForm from "../views/PayForm.vue";
 
 const routes = [
   {
@@ -24,6 +25,11 @@ const routes = [
     path: "/product/:id",
     name: "Deatail",
     component: ProductDetail,
+  },
+  {
+    path: "/cart/pay",
+    name: "Pay",
+    component: PayForm,
   },
 ];
 
