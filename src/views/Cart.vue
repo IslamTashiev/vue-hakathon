@@ -1,15 +1,17 @@
 <template>
 <Header />
-<Button className="btn-gray" text="Оформить заказ" />
+ <Nav/>
+<CartItem/>
 <Footer />
 </template>
 
 <script>
 import Header from "@/components/Header/Header.vue";
 import Footer from "@/components/Footer/Footer.vue";
-import Button from "@/components/Buttons/Button.vue";
+import CartItem from "@/components/Cart/CartItem.vue";
+import Nav from "@/components/Nav/Nav.vue";
 export default {
-  components: {Header,Footer,Button},
+  components: {Header,Footer,CartItem,Nav},
 };
 </script>
 
