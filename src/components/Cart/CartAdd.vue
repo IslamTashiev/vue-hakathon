@@ -45,7 +45,15 @@ export default {
     height: 100%;
     content: "";
     background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.2) 100%);
-    right: 0;
+    right: -12px;
   }
+   &:last-child {
+      padding-bottom: 0;
+      &::before {
+        display: none;
+      }
+    }
+
 }
+
 </style>

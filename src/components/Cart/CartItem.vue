@@ -27,6 +27,10 @@
         </div>
       </div>
 
+
+
+
+
       <div class="cart__items">
         <div class="cart__item">
           <div class="item__left">
@@ -113,14 +117,14 @@
             </div>
           </div>
         </div>
-        <div class="cart__item">
+<div class="cart__item">
           <div class="item__left">
             <img
-              class="item__image"
+              class="cart__item__image"
               src="@/assets/images/item-image.jpg"
               alt="item-image"
             />
-            <div class="cartitem__description">
+            <div class="item__description">
               <h4 class="item__title">ПИЦЦА ДВОЙНАЯ ПЕППЕРОНИ</h4>
               <p class="item__subtitle">
                 Кальмары, мидии, креветки, сыр маасдам, красный лук, микс
@@ -199,6 +203,12 @@
           </div>
         </div>
       </div>
+
+
+
+
+
+
       <div class="cart__add-title">ДОБАВИТЬ К ЗАКАЗУ</div>
 
       <div class="cart__add">
