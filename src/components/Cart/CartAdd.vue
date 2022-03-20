@@ -1,6 +1,8 @@
 <template>
-    <div class="cart__add-item">
-    <img
+  <div class="cart__add-items ">
+    <div class="cart__add-item col-3 ">
+            <div class="cart__add-description">
+<img
       class="cart__add-image"
       src="@/assets/images/add-img.svg"
       alt="add-image"
@@ -17,7 +19,9 @@
       </div>
       <span class="cart__add-price"> 1640 ₽</span>
     </div>
-  </div>
+        </div>
+        </div>
+         </div>
 </template>
 
 

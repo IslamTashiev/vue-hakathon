@@ -200,19 +200,14 @@
         </div>
       </div>
    <div class="cart__add-title">ДОБАВИТЬ К ЗАКАЗУ</div>
-      <div class="cart__add">
-        <div class="cart__add-items">
+
+        <div class="cart__add">
           <CartAdd />
           <CartAdd />
           <CartAdd />
           <CartAdd />
-        </div>
+           </div>
         <hr />
-      </div>
-
-
-
-
       <div class="cart__price">
         <div class="cart__price-item">
           <b class="cart__price-finish">Итого: <span>500 ₽</span> </b>
