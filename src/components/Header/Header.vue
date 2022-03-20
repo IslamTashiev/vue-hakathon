@@ -239,14 +239,14 @@ export default {
     content: "";
   }
   span{
-    top: 39%;
+    top: 42%;
     transform: scale(1);
   }
   &.active span{
     transform: scale(0);
   }
   &::before{
-    top: 0;
+    top: 1px;
   }
   &.active::before{
     transform: rotate(45deg);

@@ -4,7 +4,7 @@
   <main>
     <Hero />
     <Nav />
-    <ProductList />
+    <ProductList title="ХОЛОДНЫЕ ЗАКУСКИ" />
     <Contacts/>
   </main>
   <Footer />

@@ -1,16 +1,16 @@
 <template>
-    <div class="product__item">
+    <div @click="handleDetailItem(product.id)" class="product__item">
         <div class="item__image">
-            <img src="@/assets/images/item-image.jpg" alt="item-image">
+            <img :src="product.imageURL" alt="item-image">
         </div>
         <div class="item__description">
             <div class="item__header">
-                <div class="item__title">Гусь</div>
-                <div class="item__weight">Вес: <span>225</span> г</div>
+                <div class="item__title">{{product.title}}</div>
+                <div class="item__weight">Вес: <span>{{product.calories.weight}}</span> г</div>
             </div>
-            <div class="item__subtitle">Фаршированный яблоками</div>
+            <div class="item__subtitle">{{subTitle}}</div>
             <div class="item__footer">
-                <div class="item__price">7 900 ₽</div>
+                <div class="item__price">{{product.price}} ₽</div>
                 <button class="btn item__btn">
                     В корзину
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -26,8 +26,28 @@
 </template>
 
 <script>
+import {useStore} from "vuex"
+import {useRouter} from "vue-router"
 export default {
+    props: ["product"],
+    setup(props) {
+        let text = props.product.description
+        text = text.split(" ")
+        const subTitle = text[0] + text[1] + "..."
 
+        const store = useStore()
+        const router = useRouter()
+        
+        const handleDetailItem = (id) => {
+           store.dispatch("getProductDetails",id)
+           router.push(`/product/${props.product.id}`)
+        }
+
+        return{
+            subTitle,
+            handleDetailItem
+        }
+    }
 }
 </script>
 
