@@ -47,7 +47,7 @@
           <div class="item__right">
             <div class="item__right-items">
               <span></span>
-  <div class="item__counter">
+              <div class="item__counter">
               <div class="counter__minus">
                 <svg
                   width="28"
