@@ -2,20 +2,26 @@
     <div class="container">
         <Title :title="title" /> 
     </div>
-    <div class="product__list">
-        <ProductItem v-for="product in products" :key="product.id" :product="product" />
+    <div v-if="products.length" class="product__list">
+        <ProductItem  v-for="product in products" :key="product.id" :product="product" />
+    </div>
+    <div v-else class="product__list">
+        <ProductItemSceleton />
+        <ProductItemSceleton />
+        <ProductItemSceleton />
+        <ProductItemSceleton />
     </div>
 </template>
 
 <script>
 import Title from "@/components/Title/Title"
 import ProductItem from "./ProductItem"
-// :class="{container : !className, [className] : className}"
+import ProductItemSceleton from "./ProductItemSceleton"
 import {useStore} from "vuex"
-import { ref } from '@vue/reactivity'
 import { computed, onMounted } from '@vue/runtime-core'
+
 export default {
-    components: {Title,ProductItem},
+    components: {Title,ProductItem,ProductItemSceleton},
     props: ["title","className"],
     setup() {
         const store = useStore()
