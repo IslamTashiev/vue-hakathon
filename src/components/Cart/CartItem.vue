@@ -43,12 +43,67 @@
               </p>
             </div>
           </div>
-          
+
           <div class="item__right">
             <div class="item__right-items">
               <span></span>
-  <div class="item__counter">
-              <div class="counter__minus">
+              <div class="item__counter">
+                <div class="counter__minus">
+                  <svg
+                    width="28"
+                    height="28"
+                    viewBox="0 0 28 28"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <circle
+                      cx="13.9718"
+                      cy="13.972"
+                      r="13.486"
+                      fill="#72A479"
+                    />
+                    <path
+                      d="M8 13.8999C8 13.0715 8.67157 12.3999 9.5 12.3999H18.5C19.3284 12.3999 20 13.0715 20 13.8999V13.8999C20 14.7284 19.3284 15.3999 18.5 15.3999H9.5C8.67157 15.3999 8 14.7284 8 13.8999V13.8999Z"
+                      fill="white"
+                    />
+                  </svg>
+                </div>
+                <span>1</span>
+                <div class="counter__plus">
+                  <svg
+                    width="28"
+                    height="28"
+                    viewBox="0 0 28 28"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <circle
+                      cx="14.0719"
+                      cy="13.972"
+                      r="13.486"
+                      fill="#72A479"
+                    />
+                    <g clip-path="url(#clip0_0_1)">
+                      <path
+                        d="M18.2771 12.6967H15.3463V9.766C15.3463 9.04596 14.7416 8.45658 14.0213 8.45658C13.301 8.45658 12.6962 9.04596 12.6962 9.766V12.6967H9.76547C9.04544 12.6967 8.45605 13.3015 8.45605 14.0218C8.45605 14.7421 9.04544 15.3469 9.76547 15.3469H12.6962V18.2776C12.6962 18.9976 13.301 19.587 14.0213 19.587C14.7416 19.587 15.3463 18.9976 15.3463 18.2776V15.3469H18.2771C18.9971 15.3469 19.5865 14.7421 19.5865 14.0218C19.5865 13.3015 18.9971 12.6967 18.2771 12.6967Z"
+                        fill="white"
+                      />
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_0_1">
+                        <rect
+                          width="11.1304"
+                          height="11.1304"
+                          fill="white"
+                          transform="translate(8.45605 8.45658)"
+                        />
+                      </clipPath>
+                    </defs>
+                  </svg>
+                </div>
+              </div>
+              <div class="item__price">1640 ₽</div>
+              <div class="item__delete-btn">
                 <svg
                   width="28"
                   height="28"
@@ -56,90 +111,45 @@
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
                 >
-                  <circle cx="13.9718" cy="13.972" r="13.486" fill="#72A479" />
+                  <circle
+                    cx="13.7285"
+                    cy="14.0721"
+                    r="13.486"
+                    transform="rotate(45 13.7285 14.0721)"
+                    fill="#72A479"
+                  />
                   <path
-                    d="M8 13.8999C8 13.0715 8.67157 12.3999 9.5 12.3999H18.5C19.3284 12.3999 20 13.0715 20 13.8999V13.8999C20 14.7284 19.3284 15.3999 18.5 15.3999H9.5C8.67157 15.3999 8 14.7284 8 13.8999V13.8999Z"
+                    d="M17.6035 16.1437L15.5311 14.0713L17.6035 11.999C18.1126 11.4898 18.1018 10.6455 17.5924 10.1361C17.0831 9.6268 16.2387 9.61593 15.7296 10.1251L13.6572 12.1974L11.5849 10.1251C11.0757 9.61593 10.2314 9.6268 9.72202 10.1361C9.2127 10.6455 9.20183 11.4898 9.71097 11.999L11.7833 14.0713L9.71097 16.1437C9.20183 16.6528 9.2127 17.4972 9.72202 18.0065C10.2314 18.5159 11.0757 18.5267 11.5849 18.0176L13.6572 15.9452L15.7296 18.0176C16.2387 18.5267 17.0831 18.5159 17.5924 18.0065C18.1018 17.4972 18.1126 16.6528 17.6035 16.1437Z"
                     fill="white"
                   />
                 </svg>
               </div>
-              <span>1</span>
-              <div class="counter__plus">
-                <svg
-                  width="28"
-                  height="28"
-                  viewBox="0 0 28 28"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <circle cx="14.0719" cy="13.972" r="13.486" fill="#72A479" />
-                  <g clip-path="url(#clip0_0_1)">
-                    <path
-                      d="M18.2771 12.6967H15.3463V9.766C15.3463 9.04596 14.7416 8.45658 14.0213 8.45658C13.301 8.45658 12.6962 9.04596 12.6962 9.766V12.6967H9.76547C9.04544 12.6967 8.45605 13.3015 8.45605 14.0218C8.45605 14.7421 9.04544 15.3469 9.76547 15.3469H12.6962V18.2776C12.6962 18.9976 13.301 19.587 14.0213 19.587C14.7416 19.587 15.3463 18.9976 15.3463 18.2776V15.3469H18.2771C18.9971 15.3469 19.5865 14.7421 19.5865 14.0218C19.5865 13.3015 18.9971 12.6967 18.2771 12.6967Z"
-                      fill="white"
-                    />
-                  </g>
-                  <defs>
-                    <clipPath id="clip0_0_1">
-                      <rect
-                        width="11.1304"
-                        height="11.1304"
-                        fill="white"
-                        transform="translate(8.45605 8.45658)"
-                      />
-                    </clipPath>
-                  </defs>
-                </svg>
-              </div>
             </div>
-            <div class="item__price">1640 ₽</div>
-            <div class="item__delete-btn">
-              <svg
-                width="28"
-                height="28"
-                viewBox="0 0 28 28"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <circle
-                  cx="13.7285"
-                  cy="14.0721"
-                  r="13.486"
-                  transform="rotate(45 13.7285 14.0721)"
-                  fill="#72A479"
-                />
-                <path
-                  d="M17.6035 16.1437L15.5311 14.0713L17.6035 11.999C18.1126 11.4898 18.1018 10.6455 17.5924 10.1361C17.0831 9.6268 16.2387 9.61593 15.7296 10.1251L13.6572 12.1974L11.5849 10.1251C11.0757 9.61593 10.2314 9.6268 9.72202 10.1361C9.2127 10.6455 9.20183 11.4898 9.71097 11.999L11.7833 14.0713L9.71097 16.1437C9.20183 16.6528 9.2127 17.4972 9.72202 18.0065C10.2314 18.5159 11.0757 18.5267 11.5849 18.0176L13.6572 15.9452L15.7296 18.0176C16.2387 18.5267 17.0831 18.5159 17.5924 18.0065C18.1018 17.4972 18.1126 16.6528 17.6035 16.1437Z"
-                  fill="white"
-                />
-              </svg>
-            </div>
-            </div>
-          
           </div>
         </div>
       </div>
 
-
-
-
-  <div class="cart__add-title"><h3>ДОБАВИТЬ К ЗАКАЗУ</h3></div>
+      <div class="cart__add-title"><h3>ДОБАВИТЬ К ЗАКАЗУ</h3></div>
       <div class="cart__add">
-        <CartAdd v-for="item in items" :key="item.id" :item="item" />  
+        <CartAdd v-for="item in items" :key="item.id" :item="item" />
       </div>
       <hr />
       <div class="cart__price">
         <div class="cart__price-items">
-        <div class="cart__price-item">
-          <b class="cart__price-finish">Итого: <span>500 ₽</span> </b>
-          <div class="cart__price-delivery">
-            До бесплатной доставки не хватет: <span>100 ₽</span>
+          <div class="cart__price-item">
+            <b class="cart__price-finish">Итого: <span>500 ₽</span> </b>
+            <div class="cart__price-delivery">
+              До бесплатной доставки не хватет: <span>10 ₽</span>
+            </div>
+            <span class="cart__price-min">Минимальная сумма заказа 1500 ₽</span>
           </div>
-          <span class="cart__price-min">Минимальная сумма заказа 1500 ₽</span>
+          <Button
+            class="cart__price-btn"
+            className="btn"
+            text="Оформить заказ"
+          />
         </div>
-        <Button class="cart__price-btn" className="btn" text="Оформить заказ" />
       </div>
-        </div>
     </div>
   </main>
 </template>
@@ -187,7 +197,6 @@ export default {
 <style lang="scss" scoped>
 hr {
   margin: 0 auto;
-  // width: 1200px;
   position: relative;
   top: 40px;
   left: 0px;

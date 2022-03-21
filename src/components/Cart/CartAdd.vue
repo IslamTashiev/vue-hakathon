@@ -77,18 +77,16 @@ export default {
         display: none;
       }
     }
-    // &::before {
-    //   display: none;
-    // }
   }
 
-  @media (max-width: 1230px) {
+  @media (max-width: 1231px) {
     &:last-child {
       &::before {
         display: block;
       }
     }
   }
+
   @media (max-width: 933px) {
     .cart__add-items {
       &:last-child {
@@ -98,6 +96,7 @@ export default {
       }
     }
   }
+
   @media (max-width: 878px) {
     &::before {
       display: none;
@@ -121,8 +120,8 @@ export default {
       }
     }
   }
-  &:last-child::before{
-    height: 0;
-  }
+  // &:last-child::before{
+  //   height: 0;
+  // }
 }
 </style>
