@@ -1,12 +1,8 @@
 <template>
-  <div class="wrapper">
-    <Header />
-    <Nav />
-    <main>
-  <CartItem />
-    </main>
-    <Footer />
-  </div>
+<Header />
+<Nav/>
+<CartItem/>
+<Footer />
 </template>
 
 <script>

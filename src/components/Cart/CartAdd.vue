@@ -121,5 +121,8 @@ export default {
       }
     }
   }
+  &:last-child::before{
+    height: 0;
+  }
 }
 </style>
