@@ -192,7 +192,7 @@ hr {
   top: 40px;
   left: 0px;
   border: 1px solid rgba(255, 255, 255, 0.1);
-  @media (max-width: 625px) {
+  @media (max-width: 849px) {
     display: none;
   }
 }
