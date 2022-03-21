@@ -13,7 +13,6 @@
                     </defs>
                 </svg>
                 Вернуться назад
-                    
             </router-link>
 
             <div class="card">

@@ -1,6 +1,6 @@
 <template>
 <Header />
- <Nav/>
+<Nav/>
 <CartItem/>
 <Footer />
 </template>

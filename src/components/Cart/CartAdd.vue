@@ -47,5 +47,8 @@ export default {
     background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.2) 100%);
     right: 0;
   }
+  &:last-child::before{
+    height: 0;
+  }
 }
 </style>

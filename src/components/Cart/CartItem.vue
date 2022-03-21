@@ -199,6 +199,7 @@
           </div>
         </div>
       </div>
+
       <div class="cart__add-title">ДОБАВИТЬ К ЗАКАЗУ</div>
 
       <div class="cart__add">
@@ -264,6 +265,6 @@ hr {
   position: relative;
   top: 40px;
   left: 0;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  // border: 1px solid rgba(255, 255, 255, 0.1);
 }
 </style>

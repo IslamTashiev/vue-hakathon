@@ -1,5 +1,5 @@
 <template>
-    <button :class="{ 'btn': !className, [className]: className }">
+    <button class="btn" :class="{[className] : className }">
     {{ text }}
   </button>
 </template>
@@ -36,7 +36,7 @@ props: ["text","className"]
   background: #2E2B2C;
   border-radius: 10px;
   padding: 10px 16px;
- border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   cursor: pointer;
 
   &:hover {
