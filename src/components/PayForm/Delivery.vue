@@ -26,7 +26,7 @@
                 Доставим через  1 час 30 минут
             </div>
         </div>
-        <div class="pay__delivery-adress">
+        <div v-if="activeSelectorItem === 0" class="pay__delivery-adress">
             <p class="pay__section-label">Адрес доставки</p>
             <div class="floor first">
                 <input type="text" placeholder="Укажите улицу*" class="input">
@@ -40,6 +40,9 @@
             <div class="floor third">
                 <input type="text" placeholder="Комментарий" class="input">
             </div>
+        </div>
+        <div v-else class="">
+
         </div>
     </div>
 </template>

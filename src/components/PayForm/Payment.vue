@@ -10,7 +10,7 @@
                 @click="handleactiveSelector(index)"
             />
         </div>
-        <input type="text" placeholder="Сдача с" class="input">
+        <input v-if="true ? activeSelectorItem === 2 : false" type="text" placeholder="Сдача с" class="input">
     </div>
 </template>
 
