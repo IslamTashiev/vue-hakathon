@@ -2,7 +2,9 @@
   <div class="wrapper">
     <Header />
     <Nav />
-    <CartItem />
+    <main>
+  <CartItem />
+    </main>
     <Footer />
   </div>
 </template>
