@@ -58,7 +58,7 @@ export default {
       display: none;
     }
   }
-  @media (max-width: 848px) {
+  @media (max-width: 877px) {
     position: relative;
     &::after {
       position: absolute;

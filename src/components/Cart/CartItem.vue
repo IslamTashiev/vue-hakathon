@@ -162,7 +162,7 @@ export default {
       },
       {
         id: 1,
-        Named: "ГРИСССИНИ",
+        Named: "ПИЦЦА ПЕППЕРОНИ",
         image: AddImg,
       },
       {
@@ -172,7 +172,7 @@ export default {
       },
       {
         id: 4,
-        Named: "ПИЦЦА СЫРНАЯ",
+        Named: "КВАС АНАНАСОВЫЙ",
         image: AddImg,
       },
     ]);
@@ -187,7 +187,7 @@ export default {
 <style lang="scss" scoped>
 hr {
   margin: 0 auto;
-  width: 1200px;
+  // width: 1200px;
   position: relative;
   top: 40px;
   left: 0px;
