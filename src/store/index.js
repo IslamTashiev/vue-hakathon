@@ -4,6 +4,27 @@ export default createStore({
   state: {
     products: [],
     productDetails: {},
+    cartItems: new Map()
+  },
+  getters: {
+    totalSumOfProducts(state){
+      const price = state.cartItems;
+      let sum = 0;
+
+      for (const product of price.values()) {
+        sum += product.price * product.count;
+      }
+      return sum;
+    },
+    totalCountOfProducts(state) {
+      const price = state.cartItems;
+      let count = 0;
+
+      for (const product of price.values()) {
+        count += product.count;
+      }
+      return count;
+    },
   },
   mutations: {
     SET_PRODUCTS(state, data) {
@@ -11,6 +32,12 @@ export default createStore({
     },
     SET_DETAIL_PRODUCT(state, data) {
       state.productDetails = data;
+    },
+    ADD_PRODUCT_TO_CART(state, product) {
+      state.cartItems.set(product.id, product)
+    },
+    DELETE_PRODUCT_IN_CART(state, id) {
+      state.cartItems.delete(id);
     },
   },
   actions: {
@@ -26,5 +53,6 @@ export default createStore({
 
       commit("SET_DETAIL_PRODUCT", data);
     },
+
   },
 });

@@ -2,11 +2,11 @@
   <div class="cart__add-items">
     <div class="cart__add-item col-3">
       <div class="cart__add-description">
-        <img class="cart__add-image" :src="item.image" alt="add-image" />
+        <img class="cart__add-image" :src="addOrder.imageURL" alt="add-image" />
         <div class="cart__add-label">
-          <h4 class="cart__add-subtitle">{{ item.Named }}</h4>
+          <h4 class="cart__add-subtitle">{{ addOrder.title }}</h4>
           <div class="cart__add-pushitems">
-            <div class="cart__add-push">
+            <div @click="handleAddProductToCart" class="cart__add-push">
               Добавить
               <img
                 class="cart__add-plus"
@@ -14,7 +14,7 @@
                 alt="title"
               />
             </div>
-            <span class="cart__add-price"> 1640 ₽</span>
+            <span class="cart__add-price"> {{ addOrder.price }} ₽ </span>
           </div>
         </div>
       </div>
@@ -24,15 +24,27 @@
 
 
 <script>
+import { computed } from '@vue/runtime-core';
+import { useStore } from 'vuex';
+
 export default {
   props: {
-    item: {
+    addOrder: {
       type: Object,
       reqired: true,
     },
   },
-  setup() {
-    return {};
+  setup(props) {
+    const store = useStore();
+
+    const addOrders = computed(() => store.state.addOrders)
+
+    const handleAddProductToCart = () => {
+      store.commit("ADD_PRODUCT_TO_CART", props.addOrder);
+      console.log(addOrders.value)
+    }
+
+    return {handleAddProductToCart};
   },
 };
 </script>
@@ -50,7 +62,7 @@ export default {
       rgba(255, 255, 255, 0) 0%,
       rgba(255, 255, 255, 0.2) 100%
     );
-    right: -5px;
+    right: -15px;
   }
   &:last-child {
     padding-bottom: 0;

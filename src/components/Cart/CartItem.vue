@@ -1,45 +1,18 @@
 <template>
   <main>
     <div class="container">
-      <div class="cart__header">
-        <div class="cart__header-content">
-          <div class="cart__header-content_up">
-            <svg
-              width="7"
-              height="12"
-              viewBox="0 0 7 12"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M0.46967 5.46967C0.176777 5.76256 0.176777 6.23744 0.46967 6.53033L5.24264 11.3033C5.53553 11.5962 6.01041 11.5962 6.3033 11.3033C6.59619 11.0104 6.59619 10.5355 6.3033 10.2426L2.06066 6L6.3033 1.75736C6.59619 1.46447 6.59619 0.989593 6.3033 0.6967C6.01041 0.403806 5.53553 0.403806 5.24264 0.696699L0.46967 5.46967ZM1.5 5.25L1 5.25L1 6.75L1.5 6.75L1.5 5.25Z"
-                fill="white"
-              />
-            </svg>
-            к выбору блюда
-          </div>
-          <div class="cart__header-content_down">
-            <div class="title">
-              <h1>КОРЗИНА</h1>
-              <p>(в корзине 3 товара)</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
       <div class="cart__items">
         <div class="cart__item">
           <div class="item__left">
             <img
               class="cart__item__image"
-              src="@/assets/images/item-image.jpg"
+              :src="item.imageURL"
               alt="item-image"
             />
             <div class="item__description">
-              <h4 class="item__title">ПИЦЦА ДВОЙНАЯ ПЕППЕРОНИ</h4>
+              <h4 class="item__title"> {{item.title}} </h4>
               <p class="item__subtitle">
-                Кальмары, мидии, креветки, сыр маасдам, красный лук, микс
-                оливок, базилик, соус песто
+               {{item.description}}
               </p>
             </div>
           </div>
@@ -48,7 +21,7 @@
             <div class="item__right-items">
               <span></span>
               <div class="item__counter">
-                <div class="counter__minus">
+                <div @click="remoteProduct" class="counter__minus">
                   <svg
                     width="28"
                     height="28"
@@ -69,7 +42,7 @@
                   </svg>
                 </div>
                 <span>1</span>
-                <div class="counter__plus">
+                <div @click="addPizza" class="counter__plus">
                   <svg
                     width="28"
                     height="28"
@@ -102,8 +75,8 @@
                   </svg>
                 </div>
               </div>
-              <div class="item__price">1640 ₽</div>
-              <div class="item__delete-btn">
+              <div class="item__price"> {{item.price}} ₽  </div> 
+              <div @click="handleDeleteProduct" class="item__delete-btn">
                 <svg
                   width="28"
                   height="28"
@@ -128,81 +101,42 @@
           </div>
         </div>
       </div>
-
-      <div class="cart__add-title"><h3>ДОБАВИТЬ К ЗАКАЗУ</h3></div>
-      <div class="cart__add">
-        <CartAdd v-for="item in items" :key="item.id" :item="item" />
-      </div>
-      <hr />
-      <div class="cart__price">
-        <div class="cart__price-items">
-          <div class="cart__price-item">
-            <b class="cart__price-finish">Итого: <span>500 ₽</span> </b>
-            <div class="cart__price-delivery">
-              До бесплатной доставки не хватет: <span>10 ₽</span>
-            </div>
-            <span class="cart__price-min">Минимальная сумма заказа 1500 ₽</span>
-          </div>
-          <Button
-            class="cart__price-btn"
-            className="btn"
-            text="Оформить заказ"
-          />
-        </div>
-      </div>
+<!-- *item.counter -->
+      
     </div>
   </main>
 </template>
 
 <script>
-import Button from "@/components/Buttons/Button.vue";
-import CartAdd from "@/components/Cart/CartAdd.vue";
-import AddImg from "@/assets/images/add-img.svg";
-// import AddUtka from "@/assets/images/add-.svg";
-import { ref } from "@vue/reactivity";
+import { useStore } from "vuex";
 
 export default {
-  components: { Button, CartAdd },
-  setup() {
-    const items = ref([
-      {
-        id: 2,
-        Named: "КВАС АНАНАСОВЫЙ",
-        image: AddImg,
-      },
-      {
-        id: 1,
-        Named: "ПИЦЦА ПЕППЕРОНИ",
-        image: AddImg,
-      },
-      {
-        id: 3,
-        Named: "ПИЦЦА ПЕППЕРОНИ",
-        image: AddImg,
-      },
-      {
-        id: 4,
-        Named: "КВАС АНАНАСОВЫЙ",
-        image: AddImg,
-      },
-    ]);
+  props: ["item"],
+  setup(props) {
+    const store = useStore();
+
+    const handleDeleteProduct = () => {
+      store.commit(
+        "DELETE_PRODUCT_IN_CART",
+        props.item.id + "" + props.item.price
+      );
+    };
+    const addProduct = () => {
+      store.commit("ADD_TO_CART", props.item);
+    };
+    const remoteProduct = () => {
+      store.commit("DEC_TO_CART", props.item);
+    };
 
     return {
-      items,
+      handleDeleteProduct,
+      addProduct,
+      remoteProduct,
     };
   },
 };
 </script>
 
 <style lang="scss" scoped>
-hr {
-  margin: 0 auto;
-  position: relative;
-  top: 40px;
-  left: 0px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  @media (max-width: 849px) {
-    display: none;
-  }
-}
+
 </style>
