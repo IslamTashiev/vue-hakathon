@@ -205,7 +205,8 @@
       font-size: 15px;
       line-height: 14px;
       color: #c6ced1;
-      
+      cursor: pointer;
+
       @media (max-width: 867px) {
         margin: -10px 0px 13px 25px;
       }
@@ -385,6 +386,7 @@
   &__left {
     display: flex;
     align-items: center;
+    cursor: pointer;
     gap: 40px;
     @media (max-width: 483.99px) {
      gap: 0px;
@@ -422,7 +424,9 @@
 
     &-items {
       display: flex;
+      align-items: center;
       justify-content: space-between;
+      cursor: pointer;
       margin-right: 20px;
       max-width: 400px;
       width: 400px;

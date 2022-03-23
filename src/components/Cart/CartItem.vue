@@ -10,9 +10,9 @@
               alt="item-image"
             />
             <div class="item__description">
-              <h4 class="item__title"> {{item.title}} </h4>
+              <h4 class="item__title">{{ item.title }}</h4>
               <p class="item__subtitle">
-               {{item.description}}
+                {{ item.description }}
               </p>
             </div>
           </div>
@@ -21,7 +21,7 @@
             <div class="item__right-items">
               <span></span>
               <div class="item__counter">
-                <div @click="remoteProduct" class="counter__minus">
+                <div @click="handleMinusProduct" class="counter__minus">
                   <svg
                     width="28"
                     height="28"
@@ -41,8 +41,8 @@
                     />
                   </svg>
                 </div>
-                <span>1</span>
-                <div @click="addPizza" class="counter__plus">
+                <span>{{ item.count }}</span>
+                <div @click="handlePlusProduct" class="counter__plus">
                   <svg
                     width="28"
                     height="28"
@@ -75,7 +75,7 @@
                   </svg>
                 </div>
               </div>
-              <div class="item__price"> {{item.price}} ₽  </div> 
+              <div class="item__price">{{ item.price * item.count }} ₽</div>
               <div @click="handleDeleteProduct" class="item__delete-btn">
                 <svg
                   width="28"
@@ -101,7 +101,6 @@
           </div>
         </div>
       </div>
-<!-- *item.counter -->
     </div>
   </main>
 </template>
@@ -113,29 +112,26 @@ export default {
   props: ["item"],
   setup(props) {
     const store = useStore();
+    const handleMinusProduct = () => {
+      store.commit("DEC_TO_CART", props.item.id);
+    };
+
+    const handlePlusProduct = () => {
+      store.commit("ADD_TO_CART", props.item.id);
+    };
 
     const handleDeleteProduct = () => {
-      store.commit(
-        "DELETE_PRODUCT_IN_CART",
-        props.item.id + "" + props.item.price
-      );
-    };
-    const addProduct = () => {
-      store.commit("ADD_TO_CART", props.item);
-    };
-    const remoteProduct = () => {
-      store.commit("DEC_TO_CART", props.item);
+      store.commit("DELETE_PRODUCT_IN_CART",props.item.id);
     };
 
     return {
       handleDeleteProduct,
-      addProduct,
-      remoteProduct,
+      handlePlusProduct,
+      handleMinusProduct,
     };
   },
 };
 </script>
 
 <style lang="scss" scoped>
-
 </style>

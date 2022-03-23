@@ -47,9 +47,23 @@ export default createStore({
         state.cartItems.set(product.id, {...product, count: 1})
       }
     },
-    DELETE_PRODUCT_IN_CART(state, id) {
+    
+    DELETE_PRODUCT_IN_CART(state,id) {
       state.cartItems.delete(id);
-      }
+      },
+   
+      DEC_TO_CART(state,id){
+    const currentProduct = state.cartItems.get(id);
+
+    if (currentProduct.count > 0) {
+      currentProduct.count = currentProduct.count -1
+    }
+    },
+
+    ADD_TO_CART (state, id) {
+      const currentProduct = state.cartItems.get(id);
+      currentProduct.count = currentProduct.count +1
+    }
   },
   actions: {
     async getProducts({ commit }) {
