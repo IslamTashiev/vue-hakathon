@@ -134,4 +134,19 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.cart__item {
+      &::after {
+      position: absolute;
+      content: "";
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(
+        270deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.2) 100%
+      );
+      bottom: 0;
+    }
+
+}
 </style>
