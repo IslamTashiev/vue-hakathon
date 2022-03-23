@@ -37,7 +37,7 @@
     <div class="cart__add-title"><h3>ДОБАВИТЬ К ЗАКАЗУ</h3></div>
 
     <div class="cart__add">
-      <CartAdd v-for="addOrder in addOrders" :key="addOrder.id" :addOrder="addOrder" />
+      <CartAdd v-for="product in products" :key="product.id" :product="product" />
     </div>
 
     <hr />
@@ -93,30 +93,30 @@ export default {
     const totalSum = computed(() => store.getters.totalSumOfProducts);
     const cartItems = computed(() => store.state.cartItems);
 
-    const addOrders = ref([
+    const products = ref([
       {
-        id: 3,
+        id: 11,
         title: "КВАС АНАНАСОВЫЙ",
         "description": "Кальмары, мидии, креветки, сыр маасдам, красный лук, микс оливок, базилик, соус песто",
         imageURL: AddImg,
         price: 1640,
       },
       {
-        id: 4,
+        id: 14,
         title: "ГРИСССИНИ",
         "description": "Кальмары, мидии, креветки, сыр маасдам, красный лук, микс оливок, базилик, соус песто",
         imageURL: AddImg,
         price: 1640,
       },
       {
-        id: 5,
+        id: 15,
         title: "ПИЦЦА ПЕППЕРОНИ",
         "description": "Кальмары, мидии, креветки, сыр маасдам, красный лук, микс оливок, базилик, соус песто",
         imageURL: AddImg,
         price: 1640,
       },
       {
-        id: 6,
+        id: 16,
         title: "КВАС ФРУКТОВЫЙ",
         "description": "Кальмары, мидии, креветки, сыр маасдам, красный лук, микс оливок, базилик, соус песто",
         imageURL: AddImg,
@@ -124,7 +124,7 @@ export default {
       },
     ]);
     return {
-      addOrders,
+     products,
       cartItems,
       totalCount,
       totalSum,

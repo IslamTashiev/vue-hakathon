@@ -102,7 +102,6 @@
         </div>
       </div>
 <!-- *item.counter -->
-      
     </div>
   </main>
 </template>

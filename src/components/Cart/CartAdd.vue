@@ -1,12 +1,16 @@
 <template>
   <div class="cart__add-items">
     <div class="cart__add-item col-3">
+      <i class="cart__added" v-if="addedProduct">{{ addedProduct }}</i>
       <div class="cart__add-description">
-        <img class="cart__add-image" :src="addOrder.imageURL" alt="add-image" />
+        <img class="cart__add-image" :src="product.imageURL" alt="add-image" />
         <div class="cart__add-label">
-          <h4 class="cart__add-subtitle">{{ addOrder.title }}</h4>
+          <h4 class="cart__add-subtitle">{{ product.title }}</h4>
           <div class="cart__add-pushitems">
-            <div @click="handleAddProductToCart" class="cart__add-push">
+            <div
+              @click="handleAddProductToCart"
+              class="cart__add-push button--add"
+            >
               Добавить
               <img
                 class="cart__add-plus"
@@ -14,7 +18,7 @@
                 alt="title"
               />
             </div>
-            <span class="cart__add-price"> {{ addOrder.price }} ₽ </span>
+            <span class="cart__add-price"> {{ product.price }} ₽ </span>
           </div>
         </div>
       </div>
@@ -24,12 +28,12 @@
 
 
 <script>
-import { computed } from '@vue/runtime-core';
-import { useStore } from 'vuex';
+import { computed } from "@vue/runtime-core";
+import { useStore } from "vuex";
 
 export default {
   props: {
-    addOrder: {
+    product: {
       type: Object,
       reqired: true,
     },
@@ -37,19 +41,36 @@ export default {
   setup(props) {
     const store = useStore();
 
-    const addOrders = computed(() => store.state.addOrders)
+    const addedProduct = computed(
+      () => store.state.cartItems.get(props.product.id)?.count
+    );
 
     const handleAddProductToCart = () => {
-      store.commit("ADD_PRODUCT_TO_CART", props.addOrder);
-      console.log(addOrders.value)
-    }
+      store.commit("ADD_PRODUCT_TO_CART", props.product);
+    };
 
-    return {handleAddProductToCart};
+    return { handleAddProductToCart, addedProduct };
   },
 };
 </script>
 
 <style lang="scss" scoped>
+.cart__added {
+  display: inline-block;
+      border-radius: 30px;
+      background-color: #79B382;
+      color: #fff;
+      font-weight: 300;
+      width: 40px;
+      height: 40px;
+      font-style: normal;
+      font-size: 20px;
+      line-height: 23px;
+      padding: 8px 0px 20px 15px ;
+      position: absolute;
+      top: 5px;
+      left: 240px;
+}
 .cart__add-items {
   position: relative;
   &::before {

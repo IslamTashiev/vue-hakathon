@@ -34,11 +34,22 @@ export default createStore({
       state.productDetails = data;
     },
     ADD_PRODUCT_TO_CART(state, product) {
-      state.cartItems.set(product.id, product)
+      const isProductAlreadyAdded = state.cartItems.get(product.id)
+      
+      if(isProductAlreadyAdded) {
+        const modifiedProduct = {
+          ...product,
+          count: isProductAlreadyAdded.count + 1,
+        }
+        state.cartItems.set(product.id, modifiedProduct)
+      }
+      else {
+        state.cartItems.set(product.id, {...product, count: 1})
+      }
     },
     DELETE_PRODUCT_IN_CART(state, id) {
       state.cartItems.delete(id);
-    },
+      }
   },
   actions: {
     async getProducts({ commit }) {
