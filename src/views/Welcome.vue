@@ -4,7 +4,9 @@
       <div class="container">
         <div class="welcome__description">
           <div class="welcome__item">
+
             <div v-if="showForm">
+               <img src="@/assets/images/1.jpg" alt="item-image" />
               <h2 class="welcome__title">Get on Board</h2>
               <SignUpForm @successSignup="enterChat" />
               <p class="welcome__subtitle">
@@ -12,7 +14,11 @@
                 <span @click="showForm = false">Login</span> instead.
               </p>
             </div>
+
+
             <div v-else>
+
+ <img src="@/assets/images/1.jpg" alt="item-image" />
               <h2 class="welcome__title welcome__title-back">
                 Hello there, welcome back
               </h2>
@@ -61,7 +67,7 @@ export default {
   text-align: center;
   display: flex;
   justify-content: space-around;
-  margin: 140px 20px 300px 20px;
+  /* margin: 140px 20px 300px 20px; */
 }
 .welcome__subtitle {
   font-style: normal;
@@ -80,7 +86,7 @@ export default {
 .welcome__description {
   width: 90%;
   max-width: 450px;
-  height: 500px;
+  /* height: 500px; */
   margin: 80px auto;
   border-radius: 20px;
   box-shadow: 2px 4px 6px rgba(28, 6, 49, 0.1);
