@@ -1,7 +1,7 @@
 <template>
   <Header />
   <Nav />
-  <div v-if="true" class="container">
+  <div v-if="false" class="container">
     <div class="cart__header">
       <div class="cart__header-content">
         <div class="cart__header-content_up">
