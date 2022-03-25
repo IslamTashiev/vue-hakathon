@@ -1,12 +1,16 @@
 <template>
   <div class="cart__add-items">
     <div class="cart__add-item col-3">
+      <i class="cart__added" v-if="addedProduct">{{ addedProduct }}</i>
       <div class="cart__add-description">
-        <img class="cart__add-image" :src="item.image" alt="add-image" />
+        <img class="cart__add-image" :src="product.imageURL" alt="add-image" />
         <div class="cart__add-label">
-          <h4 class="cart__add-subtitle">{{ item.Named }}</h4>
+          <h4 class="cart__add-subtitle">{{ product.title }}</h4>
           <div class="cart__add-pushitems">
-            <div class="cart__add-push">
+            <div
+              @click="handleAddProductToCart"
+              class="cart__add-push button--add"
+            >
               Добавить
               <img
                 class="cart__add-plus"
@@ -14,7 +18,7 @@
                 alt="title"
               />
             </div>
-            <span class="cart__add-price"> 1640 ₽</span>
+            <span class="cart__add-price"> {{ product.price }} ₽ </span>
           </div>
         </div>
       </div>
@@ -24,20 +28,94 @@
 
 
 <script>
+import { computed } from "@vue/runtime-core";
+import { useStore } from "vuex";
+
 export default {
   props: {
-    item: {
+    product: {
       type: Object,
       reqired: true,
     },
   },
-  setup() {
-    return {};
+  setup(props) {
+    const store = useStore();
+
+    const addedProduct = computed(
+      () => store.state.cartItems.get(props.product.id)?.count
+    );
+
+    const handleAddProductToCart = () => {
+      store.commit("ADD_PRODUCT_TO_CART", props.product);
+    };
+
+    return { handleAddProductToCart, addedProduct };
   },
 };
 </script>
 
 <style lang="scss" scoped>
+.cart__added {
+  display: inline-block;
+      border-radius: 30px;
+      background-color: #79B382;
+      color: #fff;
+      font-weight: 300;
+      width: 40px;
+      height: 40px;
+      font-style: normal;
+      font-size: 20px;
+      line-height: 23px;
+      padding: 8px 0px 20px 15px ;
+      position: absolute;
+      top: 5px;
+      left: 240px;
+       @media (max-width: 1230px) {
+      position: absolute;
+      left: 200px;
+    }
+               @media (max-width: 870px) {
+      position: absolute;
+      left: 160px;
+    }
+           @media (max-width: 865px) {
+      position: absolute;
+      left: 150px;
+    }
+               @media (max-width: 724px) {
+      position: absolute;
+      top: 15px;
+      left: 155px;
+    }
+                   @media (max-width: 489px) {
+      position: absolute;
+      top: 20px;
+      left: 135px;
+    }
+                      @media (max-width: 415px) {
+      position: absolute;
+      top: 10px;
+      left: 135px;
+    }
+                   @media (max-width: 389px) {
+      position: absolute;
+      top: 10px;
+      left: 135px;
+      width: 30px;
+      height: 30px;
+      padding: 3px 0px 0px 10px ;
+    }
+                       @media (max-width: 349px) {
+      position: absolute;
+      top: 12px;
+      left: 115px;
+    }
+                           @media (max-width: 325px) {
+      position: absolute;
+      top: 15px;
+      left: 105px;
+    }
+}
 .cart__add-items {
   position: relative;
   &::before {
@@ -50,7 +128,7 @@ export default {
       rgba(255, 255, 255, 0) 0%,
       rgba(255, 255, 255, 0.2) 100%
     );
-    right: -5px;
+    right: -15px;
   }
   &:last-child {
     padding-bottom: 0;
@@ -77,18 +155,16 @@ export default {
         display: none;
       }
     }
-    // &::before {
-    //   display: none;
-    // }
   }
 
-  @media (max-width: 1230px) {
+  @media (max-width: 1231px) {
     &:last-child {
       &::before {
         display: block;
       }
     }
   }
+
   @media (max-width: 933px) {
     .cart__add-items {
       &:last-child {
@@ -98,6 +174,7 @@ export default {
       }
     }
   }
+
   @media (max-width: 878px) {
     &::before {
       display: none;
@@ -121,8 +198,8 @@ export default {
       }
     }
   }
-  &:last-child::before{
-    height: 0;
-  }
+  // &:last-child::before{
+  //   height: 0;
+  // }
 }
 </style>

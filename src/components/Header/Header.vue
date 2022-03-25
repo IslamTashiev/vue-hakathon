@@ -3,14 +3,12 @@
     <div class="container">
       <div class="header__content">
         <div @click="handleActiveMenu" class="burger__menu">
-          <div class="burger__menu-icon" :class="{active: burgerMenuActive}">
+          <div class="burger__menu-icon" :class="{ active: burgerMenuActive }">
             <span></span>
           </div>
           <p>МЕНЮ</p>
         </div>
-        <router-link to="/" class="logo">
-          LOGOS
-        </router-link>
+        <router-link to="/" class="logo"> LOGOS </router-link>
         <div class="header__cearch-bar">
           <svg
             width="24"
@@ -182,9 +180,9 @@
                 />
               </svg>
 
-                Корзина
+              Корзина
               <div></div>
-              <span>4</span>
+              <span><b>{{ totalCount ? totalCount : 0 }}</b></span>
             </button>
           </router-link>
         </div>
@@ -195,67 +193,75 @@
 </template>
 
 <script>
-import { ref } from '@vue/reactivity';
-import BurgerMenu from "./BurgerMenu.vue"
+import { ref } from "@vue/reactivity";
+import BurgerMenu from "./BurgerMenu.vue";
+import { useStore } from "vuex";
+import { computed } from '@vue/runtime-core';
 
 export default {
-  components: {BurgerMenu},
+  components: { BurgerMenu },
   setup() {
-    const burgerMenuActive = ref(false)
+    const store = useStore();
+    const burgerMenuActive = ref(false);
 
     const handleActiveMenu = () => {
-       burgerMenuActive.value = !burgerMenuActive.value
-       document.body.classList.toggle("_blocked")
-       
-    }
+      burgerMenuActive.value = !burgerMenuActive.value;
+      document.body.classList.toggle("_blocked");
+    };
+    
+   const totalCount = computed(() => store.getters.totalCountOfProducts);
 
-    return{
+    return {
       burgerMenuActive,
-      handleActiveMenu
-    }
-  }
+      handleActiveMenu,
+      totalCount,
+    };
+  },
 };
 </script>
 
 <style lang="scss">
-.logo{
+.logo {
   z-index: 10;
 }
 
-.burger__menu-icon{
+.burger__menu-icon {
   width: 25px;
   height: 17px;
   position: relative;
 
-  &::before, &::after, span{
+  &::before,
+  &::after,
+  span {
     position: absolute;
     width: 100%;
     height: 3px;
     border-radius: 1.5px;
-    background-color: #65906C;
-    transition: .3s all ease;
+    background-color: #65906c;
+    transition: 0.3s all ease;
   }
-  &::before, &::after{
+  &::before,
+  &::after {
     content: "";
   }
-  span{
+  span {
     top: 42%;
     transform: scale(1);
   }
-  &.active span{
+  &.active span {
     transform: scale(0);
   }
-  &::before{
+  &::before {
     top: 1px;
   }
-  &.active::before{
+  &.active::before {
     transform: rotate(45deg);
     top: 50%;
   }
-  &::after{
+  &::after {
     bottom: 1px;
   }
-  &.active::after{
+  &.active::after {
     transform: rotate(-45deg);
     top: 50%;
   }
