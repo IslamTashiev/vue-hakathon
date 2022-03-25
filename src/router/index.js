@@ -1,4 +1,5 @@
 import { createRouter, createWebHashHistory } from "vue-router";
+import Welcome from '../views/Welcome.vue';
 import Home from "../views/Home.vue";
 import Stock from "../views/Stock.vue";
 import Cart from "../views/Cart.vue";
@@ -6,6 +7,11 @@ import ProductDetail from "../views/ProductDetail.vue";
 import PayForm from "../views/PayForm.vue";
 
 const routes = [
+  {
+    path: "/welcome",
+    name: "Welcome",
+    component: Welcome,
+  },
   {
     path: "/",
     name: "Home",
@@ -37,7 +43,6 @@ const router = createRouter({
   history: createWebHashHistory(),
   routes,
   scrollBehavior(to, from, savedPosition) {
-    // always scroll to top
     return { top: 0 }
   },
 });

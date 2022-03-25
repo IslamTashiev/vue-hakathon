@@ -126,7 +126,7 @@
                 stroke-linejoin="round"
               />
             </svg>
-            <h4>Войти</h4>
+           <router-link :to="'/welcome'">  <h4>Войти</h4> </router-link>
           </div>
         </div>
         <div class="header__button">
