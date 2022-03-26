@@ -6,7 +6,7 @@
           <div class="welcome__item">
 
             <div v-if="showForm">
-               <img src="@/assets/images/1.jpg" alt="item-image" />
+               <img class="welcome__image" src="@/assets/images/1.jpg" alt="item-image" />
               <h2 class="welcome__title">Регистрация</h2>
               <SignUpForm @successSignup="enterChat" />
               <p class="welcome__subtitle">
@@ -18,7 +18,7 @@
 
             <div v-else>
 
- <img src="@/assets/images/1.jpg" alt="item-image" />
+ <img class="welcome__image" src="@/assets/images/1.jpg" alt="item-image" />
               <h2 class="welcome__title welcome__title-back">
               Вход на сайт
               </h2>
@@ -63,6 +63,10 @@ export default {
 .welcome {
   height: 100vh;
 }
+.welcome__image{
+  width: 100%;
+  max-width: 200px;
+}
 .welcome__item {
   text-align: center;
   display: flex;
@@ -75,7 +79,7 @@ export default {
   font-size: 14px;
   line-height: 16px;
   color: #403c3b;
-  padding-bottom: 30px;
+  padding-bottom: 20px;
 }
 .welcome__title {
   font-style: normal;
@@ -83,7 +87,7 @@ export default {
   font-size: 32px;
   line-height: 20px;
   color: #403c3b;
-  margin: 10px;
+  margin: 10px 0px 20px 0px;
 }
 .welcome__description {
   width: 90%;
@@ -97,7 +101,7 @@ export default {
 }
 .welcome form {
   width: 350px;
-  margin: 20px auto;
+  margin: 0 auto;
 }
 .welcome label {
   display: block;
