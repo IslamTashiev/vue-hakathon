@@ -8,8 +8,18 @@
 
 <script>
 import Button from "@/components/Buttons/Button.vue";
+import { ref } from '@vue/reactivity';
 export default {
   components: {Button},
+  setup() {
+    const email = ref("");
+    const password = ref("");
+
+    const handleSubmit = () => {
+      console.log({ email, password });
+    };
+    return { handleSubmit, email, password };
+  },
 };
 
 </script>

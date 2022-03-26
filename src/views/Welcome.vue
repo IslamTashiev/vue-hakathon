@@ -19,6 +19,7 @@
             <div v-else>
 
  <img class="welcome__image" src="@/assets/images/1.jpg" alt="item-image" />
+               <!-- <p class="welcome__sub">Добро пожаловать!</p> -->
               <h2 class="welcome__title welcome__title-back">
               Вход на сайт
               </h2>
@@ -60,6 +61,14 @@ export default {
 </script>
 
 <style>
+/* .welcome__sub{
+  font-style: normal;
+font-weight: 300;
+font-size: 25px;
+line-height: 23px;
+color: #403c3b;
+margin-bottom: 25px;
+} */
 .welcome {
   height: 100vh;
 }
@@ -111,9 +120,9 @@ export default {
   width: 100%;
   padding: 10px;
   border-radius: 20px;
-  border: 1px solid #c4c4c4;
+  border: 1px solid #403c3b;
   outline: none;
-  color: #999;
+  color: #403c3b;
   margin: 10px auto;
 }
 .welcome span {
