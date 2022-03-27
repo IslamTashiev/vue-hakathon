@@ -15,17 +15,28 @@
 <script>
 import Button from "@/components/Buttons/Button.vue";
 import { ref } from "@vue/reactivity";
+import useSignup from "@/composables/useSignup";
 export default {
   components: { Button },
-  setup() {
+  setup(props,context) {
     const name = ref("");
     const email = ref("");
     const password = ref("");
 
-    const handleSubmit = () => {
-      console.log({ email, password, name });
+
+    const { error, signup } = useSignup();
+
+    const handleSubmit = async () => {
+      await signup(email.value, password.value, name.value);
+
+      if (!error.value) {
+        context.emit("successSignup");
+      } else {
+        console.log(error.value);
+      }
     };
-    return { handleSubmit, name, email, password };
+
+    return { handleSubmit, name, email, password,};
   },
 };
 </script>

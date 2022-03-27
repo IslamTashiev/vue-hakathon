@@ -4,25 +4,27 @@
       <div class="container">
         <div class="welcome__description">
           <div class="welcome__item">
-
             <div v-if="showForm">
-               <img class="welcome__image" src="@/assets/images/1.jpg" alt="item-image" />
+              <img
+                class="welcome__image"
+                src="@/assets/images/1.jpg"
+                alt="item-image"
+              />
               <h2 class="welcome__title">Регистрация</h2>
               <SignUpForm @successSignup="enterChat" />
               <p class="welcome__subtitle">
-                Есть аккаунт? 
+                Есть аккаунт?
                 <span @click="showForm = false">Вход</span>
               </p>
             </div>
 
-
             <div v-else>
-
- <img class="welcome__image" src="@/assets/images/1.jpg" alt="item-image" />
-               <!-- <p class="welcome__sub">Добро пожаловать!</p> -->
-              <h2 class="welcome__title welcome__title-back">
-              Вход на сайт
-              </h2>
+              <img
+                class="welcome__image"
+                src="@/assets/images/1.jpg"
+                alt="item-image"
+              />
+              <h2 class="welcome__title welcome__title-back">Вход на сайт</h2>
               <Login @successLogin="enterChat" />
               <p class="welcome__subtitle">
                 У вас еще нет аккаунта?
@@ -45,13 +47,14 @@ import { useRouter } from "vue-router";
 
 export default {
   components: { SignUpForm, Login },
-  setup() {
+  setup(props,context) {
     const router = useRouter();
+
     const enterChat = () => {
-      router.push("/");
+     context.emit("successLogin");
+      router.push('/');
     };
     const showForm = ref(false);
-
     return {
       enterChat,
       showForm,
@@ -72,7 +75,7 @@ margin-bottom: 25px;
 .welcome {
   height: 100vh;
 }
-.welcome__image{
+.welcome__image {
   width: 100%;
   max-width: 200px;
 }
