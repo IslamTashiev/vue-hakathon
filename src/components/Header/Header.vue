@@ -186,7 +186,6 @@
                   stroke-linejoin="round"
                 />
               </svg>
-
               Корзина
               <div></div>
               <span

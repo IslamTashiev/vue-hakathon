@@ -1,5 +1,5 @@
 <template>
-  <form @submit.prevent="handleSubmit">
+  <form class="welcome__form" @submit.prevent="handleSubmit">
     <input
       v-model="email"
       type="email"
