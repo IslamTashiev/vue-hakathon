@@ -21,7 +21,7 @@ export default {
     const email = ref("");
     const password = ref("");
 
-const { error, login } = useLogin();
+    const { error, login } = useLogin();
 
     const handleSubmit = async () => {
       await login(email.value, password.value);

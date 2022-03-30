@@ -63,29 +63,20 @@ export default {
 };
 </script>
 
-<style>
-/* .welcome__sub{
-  font-style: normal;
-font-weight: 300;
-font-size: 25px;
-line-height: 23px;
-color: #403c3b;
-margin-bottom: 25px;
-} */
+<style lang="scss">
 .welcome {
   height: 100vh;
-}
-.welcome__image {
+   &__image {
   width: 100%;
   max-width: 200px;
 }
-.welcome__item {
+&__item {
   text-align: center;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-around;
-  /* margin: 140px 20px 300px 20px; */
 }
-.welcome__subtitle {
+&__subtitle {
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
@@ -93,7 +84,7 @@ margin-bottom: 25px;
   color: #403c3b;
   padding-bottom: 20px;
 }
-.welcome__title {
+&__title {
   font-style: normal;
   font-weight: 300;
   font-size: 32px;
@@ -101,18 +92,21 @@ margin-bottom: 25px;
   color: #403c3b;
   margin: 10px 0px 20px 0px;
 }
-.welcome__description {
-  width: 90%;
+
+&__description {
+  width: 100%;
   max-width: 450px;
-  /* height: 500px; */
   margin: 80px auto;
   border-radius: 20px;
   box-shadow: 2px 4px 6px rgba(28, 6, 49, 0.1);
   background: white;
   overflow: hidden;
 }
+}
+
 .welcome form {
-  width: 350px;
+width: 100%;
+  max-width: 350px;
   margin: 0 auto;
 }
 .welcome label {
