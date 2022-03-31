@@ -14,10 +14,9 @@
               <SignUpForm @successSignup="enterChat" />
               <p class="welcome__subtitle">
                 Есть аккаунт?
-                <span @click="showForm = false">Вход</span>
+              <span @click="showForm = false">Вход</span>
               </p>
             </div>
-
             <div v-else>
               <img
                 class="welcome__image"

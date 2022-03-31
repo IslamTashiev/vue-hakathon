@@ -223,8 +223,8 @@ export default {
     
     
     const showForm = ref(false);
-
     const handleClickLogin = async () => {
+      showForm.value = !showForm.value;
         router.push("/welcome");
     };
 

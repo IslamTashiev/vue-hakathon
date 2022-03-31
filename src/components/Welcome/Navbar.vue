@@ -53,6 +53,7 @@ export default {
   components: { user, useLogout },
   setup() {
     const showPopup = ref(false);
+    
     const { error, logout } = useLogout();
     const router = useRouter();
 
