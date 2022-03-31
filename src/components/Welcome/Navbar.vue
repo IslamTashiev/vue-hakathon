@@ -1,91 +1,176 @@
 <template>
-         <div>
-            <div class="info__login">
-              <div>
-                <svg
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <circle
-                    cx="11.5788"
-                    cy="7.27803"
-                    r="4.77803"
-                    stroke="white"
-                    stroke-width="1.5"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                  <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
-                    d="M4.00002 18.7014C3.99873 18.3655 4.07385 18.0337 4.2197 17.7311C4.67736 16.8158 5.96798 16.3307 7.03892 16.111C7.81128 15.9462 8.59431 15.836 9.38217 15.7815C10.8408 15.6533 12.3079 15.6533 13.7666 15.7815C14.5544 15.8367 15.3374 15.9468 16.1099 16.111C17.1808 16.3307 18.4714 16.77 18.9291 17.7311C19.2224 18.3479 19.2224 19.064 18.9291 19.6808C18.4714 20.6419 17.1808 21.0812 16.1099 21.2918C15.3384 21.4634 14.5551 21.5766 13.7666 21.6304C12.5794 21.7311 11.3866 21.7494 10.1968 21.6854C9.92221 21.6854 9.65677 21.6854 9.38217 21.6304C8.59663 21.5773 7.81632 21.4641 7.04807 21.2918C5.96798 21.0812 4.68652 20.6419 4.2197 19.6808C4.0746 19.3747 3.99955 19.0401 4.00002 18.7014Z"
-                    stroke="white"
-                    stroke-width="1.5"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-              </div>
-             <h4 @click="handleClickLogout">Выйти</h4>
-            </div>
-          </div>
+  <div ref="infoRef" @click="handleClickPopup" class="info">
+    <div class="info__label">
+      <svg
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <circle
+          cx="11.5788"
+          cy="7.27803"
+          r="4.77803"
+          stroke="white"
+          stroke-width="1.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+        <path
+          fill-rule="evenodd"
+          clip-rule="evenodd"
+          d="M4.00002 18.7014C3.99873 18.3655 4.07385 18.0337 4.2197 17.7311C4.67736 16.8158 5.96798 16.3307 7.03892 16.111C7.81128 15.9462 8.59431 15.836 9.38217 15.7815C10.8408 15.6533 12.3079 15.6533 13.7666 15.7815C14.5544 15.8367 15.3374 15.9468 16.1099 16.111C17.1808 16.3307 18.4714 16.77 18.9291 17.7311C19.2224 18.3479 19.2224 19.064 18.9291 19.6808C18.4714 20.6419 17.1808 21.0812 16.1099 21.2918C15.3384 21.4634 14.5551 21.5766 13.7666 21.6304C12.5794 21.7311 11.3866 21.7494 10.1968 21.6854C9.92221 21.6854 9.65677 21.6854 9.38217 21.6304C8.59663 21.5773 7.81632 21.4641 7.04807 21.2918C5.96798 21.0812 4.68652 20.6419 4.2197 19.6808C4.0746 19.3747 3.99955 19.0401 4.00002 18.7014Z"
+          stroke="white"
+          stroke-width="1.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+      <b>User name</b>
+    </div>
+    <div v-if="showPopup" class="info__popup">
+      <ul>
+        <li>Эл.адрес....</li>
+        <li :class="{ active: activeItem === index }"
+         @click="handleClickLogout">
+          Выйти
+        </li>
+      </ul>
+    </div>
+  </div>
 </template>
 
 
 <script>
-import  useLogout  from "@/composables/useLogout";
+import useLogout from "@/composables/useLogout";
+import user from "@/composables/useUser";
+import { ref } from "@vue/reactivity";
+import { onMounted } from "@vue/runtime-core";
 import { useRouter } from "vue-router";
-import user from '@/composables/useUser'
 // import { watchEffect } from '@vue/runtime-core';
 export default {
-components: {user,useLogout},
-setup(){
-const { error, logout } = useLogout();
-const router = useRouter();
+  components: { user, useLogout },
+  setup() {
+    const showPopup = ref(false);
+    const { error, logout } = useLogout();
+    const router = useRouter();
 
-const handleClickLogout = async () => {
-    await logout()
-    if(!error.value) {
+    const activeItem = ref(0);
+    const infoRef = ref(null);
+
+     const handleClickLogout = async () => {
+      await logout();
+      if (!error.value) {
         router.push("/welcome");
-    } else {
+      } else {
         console.log(error.value);
-    }
+      }
+    };
+
+    const handleClickPopup = () => {
+      showPopup.value = !showPopup.value;
+    };
+
+    onMounted(() => {
+      document.body.addEventListener("click", (event) => {
+        if (!event.path.includes(infoRef.value)) {
+          showPopup.value = false;
+        }
+      });
+    });
+
+
+    // watchEffect(() => {
+    //     if(!user.value) {
+    //         router.push("/");
+    //     }
+    // }, user)
+
+    return {
+      showPopup,
+      handleClickPopup,
+      activeItem,
+      handleClickLogout,
+      infoRef,
+    };
+  },
 };
-// watchEffect(() => {
-//     if(!user.value) {
-//         router.push("/");
-//     }
-// }, user)
-return{handleClickLogout}
-}
-}
 </script>
 
-<style lang="scss">
-   .info__login {
+<style lang="scss" scoped>
+.info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  padding-top: 14px;
+  &::before {
+    content: "";
+    height: 100%;
+    width: 1px;
+    background-color: #635c5a;
+    margin: 0 21px 0 32px;
+  }
+  b {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 21px;
+    color: #ffffff;
+  }
+  &__label {
     display: flex;
     align-items: center;
-    gap: 10px;
-    cursor: pointer;
-    padding-top: 14px;
 
-    &::before {
-      content: "";
-      height: 100%;
-      width: 1px;
-      background-color: #635c5a;
-      margin: 0 21px 0 32px;
+    svg {
+      margin-right: 8px;
+      transition: 0.2s;
+      &.active {
+        transform: rotate(0);
+      }
     }
 
-    h4 {
-      font-style: normal;
-      font-weight: 500;
-      font-size: 18px;
-      line-height: 21px;
+    span {
       color: #ffffff;
+      border-bottom: 1px dashed #618967;
+      cursor: pointer;
     }
   }
+  
+  &__popup {
+    position: absolute;
+    right: 155px;
+    top: 40px;
+    margin-top: 15px;
+    background: #618967;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.09);
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 10px 0;
+    width: 160px;
+
+    ul {
+      overflow: hidden;
+      li {
+        padding: 12px 20px;
+        cursor: pointer;
+        color: #ffff;
+        &:hover {
+          border-radius: 10px;
+          background: linear-gradient(
+            100deg,
+            rgba(59, 56, 55, 0) 0%,
+            #3b3837 190%
+          );
+        }
+
+        &.active {
+          font-weight: bold;
+          color: #ffff;
+        }
+      }
+    }
+  }
+}
 </style>
