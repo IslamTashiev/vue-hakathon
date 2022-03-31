@@ -101,7 +101,8 @@
           </div>
 
           <div>
-            <div v-if="showForm" @click="handleClickLogin" class="info__login">
+               <Navbar v-if="user"/>
+            <div v-else @click="handleClickLogin" class="info__login">
               <div>
                 <svg
                   width="24"
@@ -132,7 +133,6 @@
               </div>
             <div><h4>Войти</h4></div>
             </div>
-             <Navbar v-else/>
           </div>
         </div>
 
@@ -207,9 +207,10 @@ import { useStore } from "vuex";
 import { computed } from "@vue/runtime-core";
 import { useRouter } from "vue-router";
 import useLogout from "@/composables/useLogout";
-import Navbar from '@/components/Welcome/Navbar'
+import Navbar from '@/components/Welcome/Navbar';
+import user  from "@/composables/useUser";
 export default {
-  components: { BurgerMenu,useLogout,Navbar },
+  components: { BurgerMenu,useLogout,Navbar,user },
   setup() {
     const router = useRouter();
     const store = useStore();
@@ -222,7 +223,7 @@ export default {
     const totalCount = computed(() => store.getters.totalCountOfProducts);
     
     
-    const showForm = ref(false);
+    const showForm = ref(true);
     const handleClickLogin = async () => {
       showForm.value = !showForm.value;
         router.push("/welcome");

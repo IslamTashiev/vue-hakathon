@@ -27,15 +27,12 @@
           stroke-linejoin="round"
         />
       </svg>
-      <b>User name</b>
+      <b>{{user.displayName}}</b>
     </div>
     <div v-if="showPopup" class="info__popup">
       <ul>
-        <li>Эл.адрес....</li>
-        <li :class="{ active: activeItem === index }"
-         @click="handleClickLogout">
-          Выйти
-        </li>
+      <li>Эл.адрес....  {{user.email}} </li>
+        <li @click="handleClickLogout">Выйти</li>
       </ul>
     </div>
   </div>
@@ -44,23 +41,21 @@
 
 <script>
 import useLogout from "@/composables/useLogout";
-import user from "@/composables/useUser";
 import { ref } from "@vue/reactivity";
 import { onMounted } from "@vue/runtime-core";
 import { useRouter } from "vue-router";
+import   user   from "@/composables/useUser";
 // import { watchEffect } from '@vue/runtime-core';
+
 export default {
-  components: { user, useLogout },
+  components: { user,useLogout },
   setup() {
     const showPopup = ref(false);
-    
     const { error, logout } = useLogout();
     const router = useRouter();
-
-    const activeItem = ref(0);
     const infoRef = ref(null);
 
-     const handleClickLogout = async () => {
+    const handleClickLogout = async () => {
       await logout();
       if (!error.value) {
         router.push("/welcome");
@@ -81,7 +76,6 @@ export default {
       });
     });
 
-
     // watchEffect(() => {
     //     if(!user.value) {
     //         router.push("/");
@@ -91,7 +85,6 @@ export default {
     return {
       showPopup,
       handleClickPopup,
-      activeItem,
       handleClickLogout,
       infoRef,
     };
@@ -138,7 +131,7 @@ export default {
       cursor: pointer;
     }
   }
-  
+
   &__popup {
     position: absolute;
     right: 155px;
