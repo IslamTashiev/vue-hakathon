@@ -4,7 +4,8 @@ export default createStore({
   state: {
     products: [],
     productDetails: {},
-    cartItems: new Map()
+    cartItems: new Map(),
+    error: null
   },
   getters: {
     totalSumOfProducts(state) {
@@ -25,12 +26,6 @@ export default createStore({
       }
       return count;
     },
-    // _user(state) {
-    //   return state._user
-    // },
-    // checkUser(state) {
-    //   return state._user !== null
-    // },
   },
     mutations: {
       SET_PRODUCTS(state, data) {
@@ -53,11 +48,9 @@ export default createStore({
           state.cartItems.set(product.id, { ...product, count: 1 })
         }
       },
-
       DELETE_PRODUCT_IN_CART(state, id) {
         state.cartItems.delete(id);
       },
-
       DEC_TO_CART(state, id) {
         const currentProduct = state.cartItems.get(id);
 
@@ -65,11 +58,10 @@ export default createStore({
           currentProduct.count = currentProduct.count - 1
         }
       },
-
       ADD_TO_CART(state, id) {
         const currentProduct = state.cartItems.get(id);
         currentProduct.count = currentProduct.count + 1
-      }
+      },
     },
     actions: {
       async getProducts({ commit }) {
