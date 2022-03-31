@@ -14,10 +14,9 @@
               <SignUpForm @successSignup="enterChat" />
               <p class="welcome__subtitle">
                 Есть аккаунт?
-                <span @click="showForm = false">Вход</span>
+              <span @click="showForm = false">Вход</span>
               </p>
             </div>
-
             <div v-else>
               <img
                 class="welcome__image"
@@ -63,77 +62,5 @@ export default {
 };
 </script>
 
-<style>
-/* .welcome__sub{
-  font-style: normal;
-font-weight: 300;
-font-size: 25px;
-line-height: 23px;
-color: #403c3b;
-margin-bottom: 25px;
-} */
-.welcome {
-  height: 100vh;
-}
-.welcome__image {
-  width: 100%;
-  max-width: 200px;
-}
-.welcome__item {
-  text-align: center;
-  display: flex;
-  justify-content: space-around;
-  /* margin: 140px 20px 300px 20px; */
-}
-.welcome__subtitle {
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 16px;
-  color: #403c3b;
-  padding-bottom: 20px;
-}
-.welcome__title {
-  font-style: normal;
-  font-weight: 300;
-  font-size: 32px;
-  line-height: 20px;
-  color: #403c3b;
-  margin: 10px 0px 20px 0px;
-}
-.welcome__description {
-  width: 90%;
-  max-width: 450px;
-  /* height: 500px; */
-  margin: 80px auto;
-  border-radius: 20px;
-  box-shadow: 2px 4px 6px rgba(28, 6, 49, 0.1);
-  background: white;
-  overflow: hidden;
-}
-.welcome form {
-  width: 350px;
-  margin: 0 auto;
-}
-.welcome label {
-  display: block;
-  margin: 20px 0 10px;
-}
-.welcome input {
-  width: 100%;
-  padding: 10px;
-  border-radius: 20px;
-  border: 1px solid #403c3b;
-  outline: none;
-  color: #403c3b;
-  margin: 10px auto;
-}
-.welcome span {
-  font-weight: bold;
-  text-decoration: underline;
-  cursor: pointer;
-}
-.welcome button {
-  margin: 20px auto;
-}
+<style >
 </style>

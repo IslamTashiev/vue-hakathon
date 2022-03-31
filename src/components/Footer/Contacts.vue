@@ -75,8 +75,13 @@
           </div>
           <div class="contact__footer">
             <div class="contact__info">
-              <Button text="ЗАБРОНИРОВАТЬ СТОЛ" class="contact__btn"/>
-              <Button className="btn-gray contact__btn-gray" text="ПРОЛОЖИТЬ МАРШРУТ" />
+              <router-link to="/cart/pay">
+                <Button text="ЗАБРОНИРОВАТЬ СТОЛ" class="contact__btn" />
+              </router-link>
+              <Button
+                className="btn-gray contact__btn-gray"
+                text="ПРОЛОЖИТЬ МАРШРУТ"
+              />
               <div class="contact__footer-title">
                 <h4>+7 (917) 510-57-59</h4>
                 <p>Звоните или оставляйте заявку</p>
@@ -85,7 +90,7 @@
             <div class="social">
               <p>Мы в соц сетях:</p>
               <div class="social__icons">
-                <svg
+               <a href="https://www.facebook.com/" target="_blank"> <svg
                   width="19"
                   height="19"
                   viewBox="0 0 19 19"
@@ -96,8 +101,9 @@
                     d="M16.625 0H2.375C1.06519 0 0 1.06519 0 2.375V16.625C0 17.9348 1.06519 19 2.375 19H9.5V12.4688H7.125V9.5H9.5V7.125C9.5 5.15731 11.0948 3.5625 13.0625 3.5625H15.4375V6.53125H14.25C13.5945 6.53125 13.0625 6.4695 13.0625 7.125V9.5H16.0312L14.8438 12.4688H13.0625V19H16.625C17.9348 19 19 17.9348 19 16.625V2.375C19 1.06519 17.9348 0 16.625 0Z"
                     fill="white"
                   />
-                </svg>
-                <svg
+                </svg></a>
+
+               <a href="https://vk.com/" target="_blank"> <svg
                   width="20"
                   height="19"
                   viewBox="0 0 20 19"
@@ -108,8 +114,9 @@
                     d="M11.2115 10.4714C10.9069 10.294 10.4836 10.294 10.1396 10.294H9.01009V12.6215H10.0468C10.4305 12.6215 10.92 12.6491 11.2509 12.4167C11.5547 12.2122 11.7267 11.8109 11.7267 11.4287C11.7267 11.0736 11.5153 10.6489 11.2115 10.4714ZM10.7854 8.4837C11.0368 8.29231 11.1686 7.9511 11.1686 7.63681C11.1686 7.29541 11.01 6.96766 10.7193 6.79032C10.4151 6.61299 9.85916 6.65396 9.50211 6.65396H9.01009V8.7024H9.66104C10.0313 8.7022 10.4681 8.72951 10.7854 8.4837ZM16.3477 0H4.02695C2.18276 0 0.6875 1.49526 0.6875 3.33984V15.6602C0.6875 17.5043 2.18276 19 4.02695 19H16.3477C18.1918 19 19.6875 17.5043 19.6875 15.6602V3.33984C19.6875 1.49526 18.1918 0 16.3477 0ZM10.7029 14.3559H6.82133V4.9877H11.0623C12.2908 4.9877 13.4242 5.76967 13.4242 7.14895C13.4242 8.21394 12.8297 8.94326 12.0713 9.16988V9.19739C13.1958 9.42974 13.999 10.0405 13.999 11.514C13.999 12.8776 13.0704 14.3559 10.7029 14.3559Z"
                     fill="white"
                   />
-                </svg>
-                <svg
+                </svg></a>
+
+               <a href="https://www.youtube.com/watch?v=k3hM_hWqD90" target="_blank"> <svg
                   width="20"
                   height="19"
                   viewBox="0 0 20 19"
@@ -124,8 +131,9 @@
                     d="M8.6875 11.875L12.25 9.5L8.6875 7.125V11.875Z"
                     fill="white"
                   />
-                </svg>
-                <svg
+                </svg></a>
+
+              <a href="https://www.instagram.com/" target="_blank">  <svg
                   width="19"
                   height="19"
                   viewBox="0 0 19 19"
@@ -148,7 +156,7 @@
                     d="M14.2236 0.00878906H4.7613C2.13957 0.00878906 0 2.14836 0 4.77009V14.2475C0 16.8541 2.13957 18.9937 4.7613 18.9937H14.2387C16.8604 18.9937 19 16.8541 19 14.2324V4.77009C18.9849 2.14836 16.8454 0.00878906 14.2236 0.00878906ZM15.3688 8.28079V13.1325C15.3688 14.3982 14.3894 15.3775 13.1237 15.3775H5.86122C4.59556 15.3775 3.61618 14.3982 3.61618 13.1325V8.28079V5.87001C3.61618 4.60435 4.59556 3.62497 5.86122 3.62497H13.1237C14.3894 3.62497 15.3688 4.60435 15.3688 5.87001V8.28079Z"
                     fill="white"
                   />
-                </svg>
+                </svg></a>
               </div>
             </div>
           </div>
@@ -200,29 +208,26 @@
 <script>
 import Button from "@/components/Buttons/Button.vue";
 export default {
-  components: {Button},
+  components: { Button },
 };
-
 </script>
 
 <style lang="scss" scoped>
-.contact{
-&__section {
-background: url("../../assets/images/map-bg.jpg") center no-repeat;
- background-size: cover;
-}
-   &__btn {
+.contact {
+  &__section {
+    background: url("../../assets/images/map-bg.jpg") center no-repeat;
+    background-size: cover;
+  }
+  &__btn {
     padding: 21px 30px;
     margin-right: 10px;
   }
-    &__btn-gray {
+  &__btn-gray {
     padding: 21px 30px;
     margin-right: 10px;
   }
 }
 .btn-gray {
-    margin-top: 20px;
-  }
-
-
+  margin-top: 20px;
+}
 </style>

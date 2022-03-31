@@ -134,7 +134,8 @@
     align-items: center;
     gap: 10px;
     cursor: pointer;
-
+    padding-top: 14px;
+    
     &::before {
       content: "";
       height: 100%;
