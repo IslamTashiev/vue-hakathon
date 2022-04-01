@@ -101,8 +101,8 @@
           </div>
 
           <div>
-               <Navbar v-if="user"/>
-            <div v-else @click="handleClickLogin" class="info__login">
+               <Navbar />
+            <div  @click="handleClickLogin" class="info__login">
               <div>
                 <svg
                   width="24"

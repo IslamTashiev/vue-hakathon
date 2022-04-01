@@ -27,11 +27,11 @@
           stroke-linejoin="round"
         />
       </svg>
-      <b>{{user.displayName}}</b>
+      <!-- <b>{{user.displayName}}</b> -->
     </div>
     <div v-if="showPopup" class="info__popup">
       <ul>
-      <li>Эл.адрес....  {{user.email}} </li>
+      <!-- <li>Эл.адрес....  {{user.email}} </li> -->
         <li @click="handleClickLogout">Выйти</li>
       </ul>
     </div>
