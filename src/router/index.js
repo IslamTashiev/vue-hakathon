@@ -7,11 +7,11 @@ import ProductDetail from "../views/ProductDetail.vue";
 import PayForm from "../views/PayForm.vue";
 
 const routes = [
-  {
-    path: "/welcome",
-    name: "Welcome",
-    component: Welcome,
-  },
+  // {
+  //   path: "/welcome",
+  //   name: "Welcome",
+  //   component: Welcome,
+  // },
   {
     path: "/",
     name: "Home",
