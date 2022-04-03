@@ -37,7 +37,7 @@
     </div>
   </div>
 
-  <div @click="ModalInfo" class="info__login">
+  <div @click="() => TogglePopup('buttonModal')" class="info__login">
     <div>
       <svg
         width="24"
@@ -68,10 +68,11 @@
     </div>
     <div><h4>Войти</h4></div>
   </div>
-  <ModalWelcome v-if="isModalInfoVisible" @close="close"/>
- 
+  <ModalWelcome
+    v-if="popupModals.buttonModal"
+    :TogglePopup="() => TogglePopup('buttonModal')"
+  />
 </template>
-
 
 <script>
 import useLogout from "@/composables/useLogout";
@@ -82,7 +83,7 @@ import user from "@/composables/useUser";
 import ModalWelcome from "@/components/Welcome/ModalWelcome";
 export default {
   components: { user, useLogout, ModalWelcome },
-  setup(props, context) {
+  setup() {
     const { error, logout } = useLogout();
     const router = useRouter();
     const infoRef = ref(null);
@@ -99,7 +100,6 @@ export default {
     const handleClickPopup = () => {
       showPopup.value = !showPopup.value;
     };
-
     onMounted(() => {
       document.body.addEventListener("click", (event) => {
         if (!event.path.includes(infoRef.value)) {
@@ -108,26 +108,21 @@ export default {
       });
     });
 
+    const popupModals = ref({
+      buttonModal: false,
+    });
 
-    const isModalInfoVisible = ref(false);
-  
-    const ModalInfo = () => {
-      isModalInfoVisible.value = !isModalInfoVisible.value;
+    const TogglePopup = (modal) => {
+      popupModals.value[modal] = !popupModals.value[modal];
     };
-
-    // const close = () => {
-    // context.emit("close");
-    // isModalInfoVisible = ref(false)
-    // };
 
     return {
       showPopup,
       handleClickPopup,
       handleClickLogout,
       infoRef,
-      ModalInfo,
-      isModalInfoVisible,
-      // close,
+      popupModals,
+      TogglePopup,
     };
   },
 };

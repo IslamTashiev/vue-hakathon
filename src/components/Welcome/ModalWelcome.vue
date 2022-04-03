@@ -2,13 +2,10 @@
   <div class="wrapper">
     <div class="welcome">
       <div class="container">
-        <slot></slot>
         <div class="welcome__description">
           <div class="welcome__item">
             <div v-if="showForm">
-              <button
-                class="cart__bt-close btn__welcome"
-              >
+              <button class="cart__bt-close btn__welcome" @click="TogglePopup">
                 <svg
                   width="16"
                   height="18"
@@ -42,11 +39,9 @@
                 <span @click="showForm = false">Вход</span>
               </p>
             </div>
+
             <div v-else>
-              <button
-                class="cart__bt-close btn__welcome"
-                @submit.prevent="closeModal"
-              >
+              <button class="cart__bt-close btn__welcome" @click="TogglePopup">
                 <svg
                   width="16"
                   height="18"
@@ -74,7 +69,7 @@
                 alt="item-image"
               />
               <h2 class="welcome__title welcome__title-back">Вход на сайт</h2>
-              <Login @successLogin="enterChat" />
+              <Login  @successLogin="enterChat" />
               <p class="welcome__subtitle">
                 У вас еще нет аккаунта?
                 <span @click="showForm = true">Зарегистрироваться</span>.
@@ -95,29 +90,20 @@ import { ref } from "@vue/reactivity";
 import { useRouter } from "vue-router";
 
 export default {
+  props: ["TogglePopup"],
   components: { SignUpForm, Login },
-  setup(props, context) {
+  setup(props,context) {
+    const showForm = ref(false);
     const router = useRouter();
 
     const enterChat = () => {
       context.emit("successLogin");
       router.push("/");
     };
-    const showForm = ref(false);
-
-    // const close = async () => {
-    //   if (!error.value) {
-    //     context.emit("close");
-    //     isModalInfoVisible = ref(false)
-    //   } else {
-    //     console.log(error.value);
-    //   }
-    // };
 
     return {
       enterChat,
       showForm,
-      // close,
     };
   },
 };

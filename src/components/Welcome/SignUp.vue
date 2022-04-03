@@ -28,7 +28,7 @@ export default {
 
     const handleSubmit = async () => {
       await signup(email.value, password.value, name.value);
-
+      
       if (!error.value) {
         context.emit("successSignup");
       } else {

@@ -7,7 +7,7 @@
       placeholder="Электронный адрес"
     />
     <input v-model="password" type="password" required placeholder="Пароль" />
-    <Button text="Войти" class="signup__btn" />
+    <Button  text="Войти" class="signup__btn" />
   </form>
 </template>
 
