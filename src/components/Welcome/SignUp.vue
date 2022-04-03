@@ -42,9 +42,4 @@ export default {
 </script>
 
 <style lang="scss">
-// .signup{
-//       &__btn {
-//     padding: 21px 30px;
-//   }
-// }
 </style>

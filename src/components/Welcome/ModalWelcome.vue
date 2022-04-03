@@ -6,9 +6,9 @@
         <div class="welcome__description">
           <div class="welcome__item">
             <div v-if="showForm">
-              <button 
-              @submit.prevent="closeModal"
-              class="cart__bt-close btn__welcome">
+              <button
+                class="cart__bt-close btn__welcome"
+              >
                 <svg
                   width="16"
                   height="18"
@@ -43,7 +43,10 @@
               </p>
             </div>
             <div v-else>
-               <button class="cart__bt-close btn__welcome">
+              <button
+                class="cart__bt-close btn__welcome"
+                @submit.prevent="closeModal"
+              >
                 <svg
                   width="16"
                   height="18"
@@ -102,18 +105,19 @@ export default {
     };
     const showForm = ref(false);
 
-    const closeModal = async () => {
-      if (!error.value) {
-        context.emit('closeModal');
-      } else {
-        console.log(error.value);
-      }
-    }
+    // const close = async () => {
+    //   if (!error.value) {
+    //     context.emit("close");
+    //     isModalInfoVisible = ref(false)
+    //   } else {
+    //     console.log(error.value);
+    //   }
+    // };
 
     return {
       enterChat,
       showForm,
-      closeModal
+      // close,
     };
   },
 };

@@ -68,7 +68,8 @@
     </div>
     <div><h4>Войти</h4></div>
   </div>
-  <ModalWelcome v-if="isModalInfoVisible" @closeModal="closeInfoModal" />
+  <ModalWelcome v-if="isModalInfoVisible" @close="close"/>
+ 
 </template>
 
 
@@ -94,7 +95,6 @@ export default {
         console.log(error.value);
       }
     };
-
     const showPopup = ref(false);
     const handleClickPopup = () => {
       showPopup.value = !showPopup.value;
@@ -108,14 +108,17 @@ export default {
       });
     });
 
+
     const isModalInfoVisible = ref(false);
+  
     const ModalInfo = () => {
       isModalInfoVisible.value = !isModalInfoVisible.value;
     };
-    const closeInfoModal = () => {
-      context.emit("closeModal");
-      isModalInfoVisible = false;
-    };
+
+    // const close = () => {
+    // context.emit("close");
+    // isModalInfoVisible = ref(false)
+    // };
 
     return {
       showPopup,
@@ -124,7 +127,7 @@ export default {
       infoRef,
       ModalInfo,
       isModalInfoVisible,
-      closeInfoModal,
+      // close,
     };
   },
 };
