@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <!-- <div class="container"> -->
     <div class="delivery__conditions">
       <div
         @click="showDropdown = !showDropdown"
@@ -20,7 +20,7 @@
         </p>
       </div>
     </div>
-  </div>
+  <!-- </div> -->
 </template>
 
 <script>
@@ -45,7 +45,7 @@ export default {
 <style lang="scss">
 .delivery {
   &__conditions {
-    width: 85%;
+    width: 95%;
   }
   &__title {
     font-family: "Gilroy";
