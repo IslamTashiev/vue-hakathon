@@ -4,6 +4,8 @@ import Stock from "../views/Stock.vue";
 import Cart from "../views/Cart.vue";
 import ProductDetail from "../views/ProductDetail.vue";
 import PayForm from "../views/PayForm.vue";
+import Delivery from "../views/Delivery.vue";
+
 
 const routes = [
   {
@@ -30,6 +32,11 @@ const routes = [
     path: "/cart/pay",
     name: "Pay",
     component: PayForm,
+  },
+  {
+    path: "/delivery",
+    name: "Delivery",
+    component: Delivery,
   },
 ];
 
