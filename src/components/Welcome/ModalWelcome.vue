@@ -98,7 +98,6 @@ export default {
 
     const enterChat = () => {
       context.emit("successLogin");
-      router.push("/");
     };
 
     return {
