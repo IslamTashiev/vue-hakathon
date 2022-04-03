@@ -69,7 +69,7 @@
                 alt="item-image"
               />
               <h2 class="welcome__title welcome__title-back">Вход на сайт</h2>
-              <Login  @successLogin="enterChat" />
+              <Login @successLogin="enterChat" />
               <p class="welcome__subtitle">
                 У вас еще нет аккаунта?
                 <span @click="showForm = true">Зарегистрироваться</span>.
@@ -98,6 +98,7 @@ export default {
 
     const enterChat = () => {
       context.emit("successLogin");
+      router.push("/");
     };
 
     return {
