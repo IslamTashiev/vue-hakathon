@@ -98,7 +98,7 @@ export default {
 
     const enterChat = () => {
       context.emit("successLogin");
-      router.push("/");
+      router.push("/stock");
     };
 
     return {

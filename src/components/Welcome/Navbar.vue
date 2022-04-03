@@ -2,6 +2,7 @@
   <div ref="infoRef" @click="handleClickPopup" class="info">
     <div class="info__label">
       <svg
+      class="info__icon"
         width="24"
         height="24"
         viewBox="0 0 24 24"
@@ -160,7 +161,6 @@ export default {
         transform: rotate(0);
       }
     }
-
     span {
       color: #ffffff;
       border-bottom: 1px dashed #618967;
