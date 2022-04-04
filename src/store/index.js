@@ -29,10 +29,10 @@ export default createStore({
 
     totalDeliveryOfProducts(state) {
       const price = state.cartItems;
-      let delivery = 5000;
+      let delivery = 6564;
 
       for (const product of price.values()) {
-        delivery += product.count;
+        delivery -= product.count
       }
       return delivery;
     }

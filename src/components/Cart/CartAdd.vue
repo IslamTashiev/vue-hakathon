@@ -55,67 +55,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.cart__added {
-  display: inline-block;
-      border-radius: 30px;
-      background-color: #79B382;
-      color: #fff;
-      font-weight: 300;
-      width: 40px;
-      height: 40px;
-      font-style: normal;
-      font-size: 20px;
-      line-height: 23px;
-      padding: 8px 0px 20px 15px ;
-      position: absolute;
-      top: 5px;
-      left: 240px;
-       @media (max-width: 1230px) {
-      position: absolute;
-      left: 200px;
-    }
-               @media (max-width: 870px) {
-      position: absolute;
-      left: 160px;
-    }
-           @media (max-width: 865px) {
-      position: absolute;
-      left: 150px;
-    }
-               @media (max-width: 724px) {
-      position: absolute;
-      top: 15px;
-      left: 155px;
-    }
-                   @media (max-width: 489px) {
-      position: absolute;
-      top: 20px;
-      left: 135px;
-    }
-                      @media (max-width: 415px) {
-      position: absolute;
-      top: 10px;
-      left: 135px;
-    }
-                   @media (max-width: 389px) {
-      position: absolute;
-      top: 10px;
-      left: 135px;
-      width: 30px;
-      height: 30px;
-      padding: 3px 0px 0px 10px ;
-    }
-                       @media (max-width: 349px) {
-      position: absolute;
-      top: 12px;
-      left: 115px;
-    }
-                           @media (max-width: 325px) {
-      position: absolute;
-      top: 15px;
-      left: 105px;
-    }
-}
 .cart__add-items {
   position: relative;
   &::before {
@@ -136,7 +75,7 @@ export default {
       display: none;
     }
   }
-  @media (max-width: 877px) {
+  @media (max-width: 913px) {
     position: relative;
     &::after {
       position: absolute;
@@ -175,7 +114,7 @@ export default {
     }
   }
 
-  @media (max-width: 878px) {
+  @media (max-width: 913px) {
     &::before {
       display: none;
     }

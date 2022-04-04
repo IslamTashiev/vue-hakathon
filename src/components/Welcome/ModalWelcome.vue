@@ -110,6 +110,7 @@ export default {
 </script>
 
 <style scoped>
+
 .btn__welcome {
   position: relative;
   top: -190px;

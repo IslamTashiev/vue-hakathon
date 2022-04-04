@@ -51,7 +51,7 @@
             >
           </b>
           <div class="cart__price-delivery">
-            До бесплатной доставки не хватет: <span>{{ totalDelivery - totalSum }} ₽</span>
+            До бесплатной доставки не хватет: <span>{{ totalDelivery - totalSum}} ₽</span>
           </div>
           <span class="cart__price-min">Минимальная сумма заказа 1500 ₽</span>
         </div>
@@ -92,7 +92,8 @@ export default {
     const totalCount = computed(() => store.getters.totalCountOfProducts);
     const totalSum = computed(() => store.getters.totalSumOfProducts);
     const cartItems = computed(() => store.state.cartItems);
-     const totalDelivery = computed(() => store.getters.totalDeliveryOfProducts);
+    const totalDelivery = computed(() => store.getters.totalDeliveryOfProducts);
+
 
     const products = ref([
       {

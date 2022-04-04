@@ -1,8 +1,8 @@
 <template>
-  <div ref="infoRef" @click="handleClickPopup" class="info">
+  <div v-if="showPopup" ref="infoRef" @click="handleClickPopup" class="info">
     <div class="info__label">
       <svg
-      class="info__icon"
+        class="info__icon"
         width="24"
         height="24"
         viewBox="0 0 24 24"
@@ -38,7 +38,7 @@
     </div>
   </div>
 
-  <div @click="() => TogglePopup('buttonModal')" class="info__login">
+  <div v-else @click="() => TogglePopup('buttonModal')" class="info__login">
     <div>
       <svg
         width="24"
@@ -97,7 +97,7 @@ export default {
         console.log(error.value);
       }
     };
-    const showPopup = ref(false);
+    const showPopup = ref(true);
     const handleClickPopup = () => {
       showPopup.value = !showPopup.value;
     };
@@ -170,15 +170,15 @@ export default {
 
   &__popup {
     position: absolute;
-    right: 155px;
+    right: 150px;
     top: 40px;
     margin-top: 15px;
-     background: #403C3B;
-    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.09);
+    background: #403c3b;
+    // box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.09);
     border-radius: 10px;
     overflow: hidden;
     padding: 10px 0;
-    width: 160px;
+    width: 150px;
     &::after {
       position: absolute;
       content: "";
