@@ -51,9 +51,6 @@ export default {
         font-size: 22px;
         line-height: 35px;
         color:#CFCFCF;
-    &__time_title{
-        
-    }
     }
 
 .delivery__time_title{

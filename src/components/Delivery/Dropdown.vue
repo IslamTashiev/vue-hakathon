@@ -1,25 +1,25 @@
 <template>
   <!-- <div class="container"> -->
-    <div class="delivery__conditions">
-      <div
-        @click="showDropdown = !showDropdown"
-        class="delivery__condition_item delivery__remark"
-      >
-        <span>{{ text }}</span>
-        <img
-          :class="{ delivery__arrow: showDropdown === true }"
-          :src="arrowUp"
-          alt="arrow-up"
-        />
-      </div>
-      <div v-if="showDropdown" class="delivery__condition_text">
-        <p class="delivery__quality">
-          Мы очень внимательно следим за качеством нашей работы, поэтому, если у
-          вас будут какие-либо замечания или предложения, то обязательно
-          сообщайте их нам
-        </p>
-      </div>
+  <div class="delivery__conditions">
+    <div
+      @click="showDropdown = !showDropdown"
+      class="delivery__condition_item delivery__remark"
+    >
+      <span>{{ text }}</span>
+      <img
+        :class="{ delivery__arrow: showDropdown === true }"
+        :src="arrowUp"
+        alt="arrow-up"
+      />
     </div>
+    <div v-if="showDropdown" class="delivery__condition_text">
+      <p class="delivery__quality">
+        Мы очень внимательно следим за качеством нашей работы, поэтому, если у
+        вас будут какие-либо замечания или предложения, то обязательно сообщайте
+        их нам
+      </p>
+    </div>
+  </div>
   <!-- </div> -->
 </template>
 
@@ -96,6 +96,48 @@ export default {
   }
   &__arrow {
     transform: rotate(190deg);
+  }
+  @media (max-width: 1340) {
+    .delivery {
+      &__wrapper {
+        width: 70%;
+      }
+      &__conditions {
+        max-width: 70%;
+      }
+    }
+  }
+  @media (max-width: 1024px) {
+    .delivery {
+      &__quality {
+        text-align: justify;
+      }
+    }
+  }
+  @media (max-width: 726px) {
+      &__wrapper {
+        flex-wrap: wrap;
+        flex-direction: column-reverse;
+      }
+
+      &__condition_text {
+        min-width: 100%;
+      }
+
+      &__conditions {
+        width: 100%;
+      }
+      &__wrap {
+        flex-direction: column;
+      }
+      &__time {
+        margin-bottom: 20px;
+      }
+      &__text {
+        max-width: 100%;
+        max-height: 100%;
+        margin-bottom: 40px;
+      }
   }
 }
 </style>

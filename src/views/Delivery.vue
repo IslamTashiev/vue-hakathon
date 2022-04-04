@@ -54,5 +54,13 @@ main {
     display: flex;
     justify-content: space-between;
   }
+  @media (max-width: 726px) {
+    &__row{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    }
+  }
+
 }
 </style>
