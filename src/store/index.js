@@ -26,6 +26,16 @@ export default createStore({
       }
       return count;
     },
+
+    totalDeliveryOfProducts(state) {
+      const price = state.cartItems;
+      let delivery = 5000;
+
+      for (const product of price.values()) {
+        delivery += product.count;
+      }
+      return delivery;
+    }
   },
     mutations: {
       SET_PRODUCTS(state, data) {
