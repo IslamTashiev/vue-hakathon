@@ -146,7 +146,7 @@ export default {
         rgba(255, 255, 255, 0.2) 100%
       );
       bottom: 0;
+      left: 7px;
     }
-
 }
 </style>

@@ -173,13 +173,24 @@ export default {
     right: 155px;
     top: 40px;
     margin-top: 15px;
-    background: #618967;
+     background: #403C3B;
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.09);
     border-radius: 10px;
     overflow: hidden;
     padding: 10px 0;
     width: 160px;
-
+    &::after {
+      position: absolute;
+      content: "";
+      top: 53px;
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(
+        270deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.2) 100%
+      );
+    }
     ul {
       overflow: hidden;
       li {
@@ -188,11 +199,7 @@ export default {
         color: #ffff;
         &:hover {
           border-radius: 10px;
-          background: linear-gradient(
-            100deg,
-            rgba(59, 56, 55, 0) 0%,
-            #3b3837 190%
-          );
+          background: #484747;
         }
 
         &.active {
