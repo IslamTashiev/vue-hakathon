@@ -23,7 +23,7 @@
           <p>© ООО СК «АПШЕРОН» Все права защищены. 2010-2020</p>
           <ul>
             <li>Пользовательское соглашение</li>
-            <li>Карта сайта</li>
+            <router-link :to="'/delivery'"> <li>Карта сайта</li></router-link>
             <li>Политика конфиденциальности</li>
           </ul>
         </div>
@@ -31,7 +31,7 @@
           <router-link :to="'/'"><li>О ресторане</li></router-link>
           <router-link :to="'/stock'"> <li>Акции</li></router-link>
           <li>Возврат товара</li>
-          <li>Условия доставки</li>
+           <router-link :to="'/cart/pay'"><li>Условия доставки</li></router-link>
         </ul>
       </div>
     </footer>

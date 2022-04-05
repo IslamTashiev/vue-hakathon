@@ -1,6 +1,45 @@
 <template>
-  <div ref="infoRef" @click="handleClickPopup" class="info">
+  <div v-if="showPopup" ref="infoRef" @click="handleClickPopup" class="info">
     <div class="info__label">
+      <svg
+        class="info__icon"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <circle
+          cx="11.5788"
+          cy="7.27803"
+          r="4.77803"
+          stroke="white"
+          stroke-width="1.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+        <path
+          fill-rule="evenodd"
+          clip-rule="evenodd"
+          d="M4.00002 18.7014C3.99873 18.3655 4.07385 18.0337 4.2197 17.7311C4.67736 16.8158 5.96798 16.3307 7.03892 16.111C7.81128 15.9462 8.59431 15.836 9.38217 15.7815C10.8408 15.6533 12.3079 15.6533 13.7666 15.7815C14.5544 15.8367 15.3374 15.9468 16.1099 16.111C17.1808 16.3307 18.4714 16.77 18.9291 17.7311C19.2224 18.3479 19.2224 19.064 18.9291 19.6808C18.4714 20.6419 17.1808 21.0812 16.1099 21.2918C15.3384 21.4634 14.5551 21.5766 13.7666 21.6304C12.5794 21.7311 11.3866 21.7494 10.1968 21.6854C9.92221 21.6854 9.65677 21.6854 9.38217 21.6304C8.59663 21.5773 7.81632 21.4641 7.04807 21.2918C5.96798 21.0812 4.68652 20.6419 4.2197 19.6808C4.0746 19.3747 3.99955 19.0401 4.00002 18.7014Z"
+          stroke="white"
+          stroke-width="1.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+      <b>User</b>
+    </div>
+    <div v-if="showPopup" class="info__popup">
+      <ul>
+        <li>Эл.адрес....</li>
+        <li @click="handleClickLogout">Выйти</li>
+      </ul>
+    </div>
+  </div>
+
+  <div v-else @click="() => TogglePopup('buttonModal')" class="info__login">
+    <div>
       <svg
         width="24"
         height="24"
@@ -27,52 +66,41 @@
           stroke-linejoin="round"
         />
       </svg>
-      <b>User name</b>
     </div>
-    <div v-if="showPopup" class="info__popup">
-      <ul>
-        <li>Эл.адрес....</li>
-        <li :class="{ active: activeItem === index }"
-         @click="handleClickLogout">
-          Выйти
-        </li>
-      </ul>
-    </div>
+    <div><h4>Войти</h4></div>
   </div>
+  <ModalWelcome
+    v-if="popupModals.buttonModal"
+    :TogglePopup="() => TogglePopup('buttonModal')"
+  />
 </template>
-
 
 <script>
 import useLogout from "@/composables/useLogout";
-import user from "@/composables/useUser";
 import { ref } from "@vue/reactivity";
 import { onMounted } from "@vue/runtime-core";
 import { useRouter } from "vue-router";
-// import { watchEffect } from '@vue/runtime-core';
+import user from "@/composables/useUser";
+import ModalWelcome from "@/components/Welcome/ModalWelcome";
 export default {
-  components: { user, useLogout },
+  components: { user, useLogout, ModalWelcome },
   setup() {
-    const showPopup = ref(false);
-    
     const { error, logout } = useLogout();
     const router = useRouter();
-
-    const activeItem = ref(0);
     const infoRef = ref(null);
 
-     const handleClickLogout = async () => {
+    const handleClickLogout = async () => {
       await logout();
       if (!error.value) {
-        router.push("/welcome");
+        router.push("/");
       } else {
         console.log(error.value);
       }
     };
-
+    const showPopup = ref(true);
     const handleClickPopup = () => {
       showPopup.value = !showPopup.value;
     };
-
     onMounted(() => {
       document.body.addEventListener("click", (event) => {
         if (!event.path.includes(infoRef.value)) {
@@ -81,19 +109,21 @@ export default {
       });
     });
 
+    const popupModals = ref({
+      buttonModal: false,
+    });
 
-    // watchEffect(() => {
-    //     if(!user.value) {
-    //         router.push("/");
-    //     }
-    // }, user)
+    const TogglePopup = (modal) => {
+      popupModals.value[modal] = !popupModals.value[modal];
+    };
 
     return {
       showPopup,
       handleClickPopup,
-      activeItem,
       handleClickLogout,
       infoRef,
+      popupModals,
+      TogglePopup,
     };
   },
 };
@@ -131,26 +161,36 @@ export default {
         transform: rotate(0);
       }
     }
-
     span {
       color: #ffffff;
       border-bottom: 1px dashed #618967;
       cursor: pointer;
     }
   }
-  
+
   &__popup {
     position: absolute;
-    right: 155px;
+    right: 150px;
     top: 40px;
     margin-top: 15px;
-    background: #618967;
-    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.09);
+    background: #403c3b;
+    // box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.09);
     border-radius: 10px;
     overflow: hidden;
     padding: 10px 0;
-    width: 160px;
-
+    width: 150px;
+    &::after {
+      position: absolute;
+      content: "";
+      top: 53px;
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(
+        270deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.2) 100%
+      );
+    }
     ul {
       overflow: hidden;
       li {
@@ -159,11 +199,7 @@ export default {
         color: #ffff;
         &:hover {
           border-radius: 10px;
-          background: linear-gradient(
-            100deg,
-            rgba(59, 56, 55, 0) 0%,
-            #3b3837 190%
-          );
+          background: #484747;
         }
 
         &.active {

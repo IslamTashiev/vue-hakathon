@@ -1,8 +1,18 @@
 .welcome {
-    height: 100vh;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 99;
+  background-color: rgb(0,0,0,0.5);
+  height: 100%;
+  align-items: center;
+  overflow: hidden;
+
      &__image {
     width: 100%;
     max-width: 200px;
+    padding-top: 25px;
   }
   &__item {
     text-align: center;
@@ -24,13 +34,16 @@
     font-size: 32px;
     line-height: 20px;
     color: #403c3b;
-    margin: 10px 0px 20px 0px;
+    margin: -20px 0px 20px 0px;
   }
   
   &__description {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 100px auto;
     width: 100%;
     max-width: 450px;
-    margin: 80px auto;
     border-radius: 20px;
     box-shadow: 2px 4px 6px rgba(28, 6, 49, 0.1);
     background: white;

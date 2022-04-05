@@ -1,6 +1,6 @@
 <template>
   <main>
-    <div class="container">
+    <!-- <div class="container"> -->
       <div class="cart__items">
         <div class="cart__item">
           <div class="item__left">
@@ -101,7 +101,7 @@
           </div>
         </div>
       </div>
-    </div>
+    <!-- </div> -->
   </main>
 </template>
 
@@ -146,7 +146,7 @@ export default {
         rgba(255, 255, 255, 0.2) 100%
       );
       bottom: 0;
+      left: 5.5px;
     }
-
 }
 </style>

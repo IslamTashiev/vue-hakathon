@@ -39,5 +39,11 @@ body {
   &._blocked {
     overflow: hidden;
   }
+
+  &.welcome {
+  height: 100vh;
+  overflow-y: hidden;
 }
+}
+
 </style>

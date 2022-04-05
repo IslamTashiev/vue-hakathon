@@ -28,7 +28,7 @@ export default {
 
     const handleSubmit = async () => {
       await signup(email.value, password.value, name.value);
-
+      
       if (!error.value) {
         context.emit("successSignup");
       } else {
@@ -42,9 +42,4 @@ export default {
 </script>
 
 <style lang="scss">
-// .signup{
-//       &__btn {
-//     padding: 21px 30px;
-//   }
-// }
 </style>
