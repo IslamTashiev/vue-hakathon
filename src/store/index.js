@@ -30,7 +30,7 @@ export default createStore({
 
     totalDeliveryOfProducts(state) {
       const price = state.cartItems;
-      let delivery = 6564 ;
+      let delivery = 100 ;
 
       for (const product of price.values()) {
           delivery -= product.count 

@@ -321,10 +321,11 @@
 
     &-item {
       margin: 20px 38px;
-      @media (max-width: 759px) {
+      @media (max-width: 764px) {
         text-align: center;
         margin: 20px 30px 10px 30px;
       }
+      
     }
     &-finish {
       font-style: normal;

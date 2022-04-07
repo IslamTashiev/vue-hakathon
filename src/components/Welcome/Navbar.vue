@@ -153,10 +153,8 @@ export default {
   cursor: pointer;
   padding-top: 14px;
   position: relative;
-
-  @media (max-width: 1180px) {
-      margin-top: 100px;
-  }
+padding: 8px 15px 0px 0px;
+ 
   &::before {
     content: "";
     height: 100%;
@@ -218,6 +216,10 @@ export default {
     overflow: hidden;
     padding: 10px 0;
     width: 150px;
+     @media (max-width: 1180px) {
+       top: 40px;
+    left: 0px;
+  }
     &::after {
       position: absolute;
       content: "";
