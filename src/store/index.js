@@ -5,7 +5,8 @@ export default createStore({
     products: [],
     productDetails: {},
     cartItems: new Map(),
-    error: null
+    error: null,
+    searchValues: "",
   },
   getters: {
     totalSumOfProducts(state) {
@@ -72,6 +73,11 @@ export default createStore({
         const currentProduct = state.cartItems.get(id);
         currentProduct.count = currentProduct.count + 1
       },
+      SEARCH_ITEMS(state,text) {
+      state.roducts = state.products.filter(product => {
+
+      })
+      }
     },
     actions: {
       async getProducts({ commit }) {
