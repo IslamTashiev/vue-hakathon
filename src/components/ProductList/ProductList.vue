@@ -4,7 +4,7 @@
   </div>
   <div v-if="products.length" class="product__list">
       <ProductItem
-      v-for="product in products"
+      v-for="product in filteredProducts"
       :key="product.id"
       :product="product"
     />
@@ -27,7 +27,7 @@ import { computed, onMounted } from "@vue/runtime-core";
 
 export default {
   components: { Title, ProductItem, ProductItemSceleton },
-  props: ["title", "className"],
+  props: ["title", "className",],
   setup() {
     const store = useStore();
 
@@ -38,9 +38,9 @@ export default {
     });
 
     const filteredProducts = computed(() => {
-      return props.products.filter((product) =>
-        product.name.includes(store.state.searchedItems)
-      );
+      return products.value.filter((product) =>
+       product.title.toUpperCase().includes(store.state.searchedItems.toUpperCase())
+      )
     });
 
     return {
