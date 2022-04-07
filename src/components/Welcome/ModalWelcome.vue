@@ -5,7 +5,7 @@
         <div class="welcome__description">
           <div class="welcome__item">
             <div v-if="showForm">
-              <button class="cart__bt-close btn__welcome" @click="TogglePopup">
+              <button class="cart__bt-close btn__welcome"  @click="TogglePopup">
                 <svg
                   width="16"
                   height="18"
@@ -41,7 +41,7 @@
             </div>
 
             <div v-else>
-              <button class="cart__bt-close btn__welcome" @click="TogglePopup">
+              <button class="cart__bt-close btn__welcome"  @click="TogglePopup">
                 <svg
                   width="16"
                   height="18"
@@ -90,30 +90,35 @@ import { ref } from "@vue/reactivity";
 import { useRouter } from "vue-router";
 
 export default {
-  props: ["TogglePopup"],
+  props: ["TogglePopup", "popupModals"],
   components: { SignUpForm, Login },
-  setup(props,context) {
+  setup(props, context) {
     const showForm = ref(false);
-    const router = useRouter();
 
     const enterChat = () => {
       context.emit("successLogin");
-      router.push("/stock");
+      props.popupModals.buttonModal = !props.popupModals.buttonModal;
+      document.querySelector("body").style.overflow = "auto";
     };
+    const enterClose = () => {
+      context.emit('closebtn')
+      document.querySelector("body").style.overflow = "auto";
+    }
 
     return {
       enterChat,
       showForm,
+      enterClose
     };
   },
 };
 </script>
 
-<style scoped>
-
+<style lang="scss" scoped>
 .btn__welcome {
   position: relative;
   top: -190px;
   left: 280px;
 }
-</style>
+</style>>
+

@@ -1,26 +1,24 @@
 <template>
-<!-- <div v-if="true"> -->
+  <!-- <div v-if="true"> -->
   <!-- <Header /> -->
-  <router-view/>
+  <router-view />
   <!-- <Footer /> -->
-<!-- </div> -->
-<!-- <div v-else>
+  <!-- </div> -->
+  <!-- <div v-else>
   <Header />
   <BurgerMenu />
 </div> -->
 </template>
 
 <script>
-import BurgerMenu from "@/components/Header/BurgerMenu"
-import Header from "@/components/Header/Header.vue"
+import BurgerMenu from "@/components/Header/BurgerMenu";
+import Header from "@/components/Header/Header.vue";
 import Footer from "@/components/Footer/Footer.vue";
 
 export default {
-  components: {BurgerMenu,Header,Footer},
-  setup() {
-    
-  },
-}
+  components: { BurgerMenu, Header, Footer },
+  setup() {},
+};
 </script>
 
 
@@ -41,9 +39,10 @@ body {
   }
 
   &.welcome {
-  height: 100vh;
-  overflow-y: hidden;
+    height: 100vh;
+    body {
+      overflow-y: hidden;
+    }
+  }
 }
-}
-
 </style>
