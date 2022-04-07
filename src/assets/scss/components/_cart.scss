@@ -530,6 +530,35 @@
   margin: 40px 0 30px;
 }
 
+.cart__added-product {
+      display: inline-block;
+      border-radius: 30px;
+      background-color: #79B382;
+      color: #fff;
+      font-weight: 300;
+      width: 60px;
+      height: 60px;
+      font-style: normal;
+      font-size: 30px;
+      line-height: 35px;
+      padding: 12px 0px 0px 20px;
+      position: absolute;
+      top: 260px;
+      @media (max-width: 1300px) {
+        top: 280px;
+      }
+      @media (max-width: 670px) {
+        top: 245px;
+      }
+      @media (max-width: 450px) {
+        top: 220px;
+      }
+      @media (max-width: 426px) {
+        top: 220px;
+        left: 15px;
+      }
+    }
+
 .cart__added {
   display: inline-block;
       border-radius: 30px;

@@ -210,11 +210,10 @@ export default {
 
   &__popup {
     position: absolute;
-    // right: 150px;
     top: 40px;
+    left: 30px;
     margin-top: 15px;
     background: #524f4e;
-    // box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.09);
     border-radius: 10px;
     overflow: hidden;
     padding: 10px 0;

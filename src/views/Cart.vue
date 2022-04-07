@@ -35,9 +35,12 @@
     <CartItem v-for="item in cartItems" :key="item.id" :item="item[1]" />
 
     <div class="cart__add-title"><h3>ДОБАВИТЬ К ЗАКАЗУ</h3></div>
-
     <div class="cart__add">
-      <CartAdd v-for="product in products" :key="product.id" :product="product" />
+      <CartAdd
+        v-for="product in products"
+        :key="product.id"
+        :product="product"
+      />
     </div>
 
     <hr />
@@ -51,7 +54,8 @@
             >
           </b>
           <div class="cart__price-delivery">
-            До бесплатной доставки не хватет: <span>{{ totalDelivery - totalSum}} ₽</span>
+            До бесплатной доставки не хватет:
+            <span>{{ totalDelivery ? totalDelivery : 0 }} ₽</span>
           </div>
           <span class="cart__price-min">Минимальная сумма заказа 1500 ₽</span>
         </div>
@@ -80,7 +84,6 @@ import CartItem from "@/components/Cart/CartItem.vue";
 import Nav from "@/components/Nav/Nav.vue";
 import AddImg from "@/assets/images/add-img.svg";
 import CartAdd from "@/components/Cart/CartAdd.vue";
-
 import { ref } from "@vue/reactivity";
 import { useStore } from "vuex";
 import { computed } from "@vue/runtime-core";
@@ -94,43 +97,46 @@ export default {
     const cartItems = computed(() => store.state.cartItems);
     const totalDelivery = computed(() => store.getters.totalDeliveryOfProducts);
 
-
     const products = ref([
       {
         id: 11,
         title: "КВАС АНАНАСОВЫЙ",
-        "description": "Кальмары, мидии, креветки, сыр маасдам, красный лук, микс оливок, базилик, соус песто",
+        description:
+          "Кальмары, мидии, креветки, сыр маасдам, красный лук, микс оливок, базилик, соус песто",
         imageURL: AddImg,
         price: 1640,
       },
       {
         id: 14,
         title: "ГРИСССИНИ",
-        "description": "Кальмары, мидии, креветки, сыр маасдам, красный лук, микс оливок, базилик, соус песто",
+        description:
+          "Кальмары, мидии, креветки, сыр маасдам, красный лук, микс оливок, базилик, соус песто",
         imageURL: AddImg,
         price: 1640,
       },
       {
         id: 15,
         title: "ПИЦЦА ПЕППЕРОНИ",
-        "description": "Кальмары, мидии, креветки, сыр маасдам, красный лук, микс оливок, базилик, соус песто",
+        description:
+          "Кальмары, мидии, креветки, сыр маасдам, красный лук, микс оливок, базилик, соус песто",
         imageURL: AddImg,
         price: 1640,
       },
       {
         id: 16,
         title: "КВАС ФРУКТОВЫЙ",
-        "description": "Кальмары, мидии, креветки, сыр маасдам, красный лук, микс оливок, базилик, соус песто",
+        description:
+          "Кальмары, мидии, креветки, сыр маасдам, красный лук, микс оливок, базилик, соус песто",
         imageURL: AddImg,
         price: 1640,
       },
     ]);
     return {
-     products,
+      products,
       cartItems,
       totalCount,
       totalSum,
-      totalDelivery
+      totalDelivery,
     };
   },
 };

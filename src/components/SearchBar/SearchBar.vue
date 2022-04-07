@@ -1,6 +1,6 @@
 <template>
   <div class="header__cearch-bar">
-          <svg
+          <!-- <svg
             width="24"
             height="24"
             viewBox="0 0 24 24"
@@ -25,7 +25,7 @@
               stroke-linecap="round"
               stroke-linejoin="round"
             />
-          </svg>
+          </svg> -->
           <input 
           @input="handleChange"
           v-model="searchData"
@@ -56,6 +56,22 @@
             />
           </svg>
         </div>
+          <!-- <div class="search-bar__results" :class="{active: false}">
+                <ul>
+                  <li class="active">
+                    Результаты поиска
+                    <img :src="seacrhIconBlack" alt="">
+                  </li>
+                  <li>
+                    Результаты поиска
+                    <img :src="seacrhIconBlack" alt="">
+                  </li>
+                  <li>
+                    Результаты поиска
+                    <img :src="seacrhIconBlack" alt="">
+                  </li>
+                </ul>
+            </div> -->
 </template>
 
 <script>
