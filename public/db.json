@@ -1,70 +1,4 @@
 {
-<<<<<<< HEAD
-    "products": [
-        {
-            "id": 1,
-            "title": "мясо",
-            "description": "Кальмары, мидии, креветки, сыр маасдам, красный лук, микс оливок, базилик, соус песто",
-            "price": 100,
-            "imageURL": "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg",
-            "category": 1,
-            "weight": 210,
-            "calories": [
-                {
-                    "calorie": "Белки",
-                    "count": 17.23
-                },
-                {
-                    "calorie": "Жиры",
-                    "count": 7.63
-                },
-                {
-                    "calorie": "Углеводы",
-                    "count": 22.35
-                },
-                {
-                    "calorie": "Ккал",
-                    "count": 234
-                },
-                {
-                    "calorie": "Вес",
-                    "count": 210
-                }
-
-            ]
-        },
-        {
-            "id": 2,
-            "title": "Ягненок",
-            "description": "Кальмары, мидии, креветки, сыр маасдам, красный лук, микс оливок, базилик, соус песто",
-            "price": 100,
-            "imageURL": "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg",
-            "category": 2,
-            "weight": 220,
-            "calories": [
-                {
-                    "calorie": "Белки",
-                    "count": 17.23
-                },
-                {
-                    "calorie": "Жиры",
-                    "count": 7.63
-                },
-                {
-                    "calorie": "Углеводы",
-                    "count": 22.35
-                },
-                {
-                    "calorie": "Ккал",
-                    "count": 234
-                },
-                {
-                    "calorie": "Вес",
-                    "count": 210
-                }
-
-            ]
-=======
   "products": [
     {
       "id": 1,
@@ -248,7 +182,6 @@
         {
           "calorie": "Вес",
           "count": 210
->>>>>>> d3dbbf0ee10cad29ec9f255a443fb48565afdc26
         }
       ],
       "id": 6

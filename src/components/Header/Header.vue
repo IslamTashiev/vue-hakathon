@@ -115,15 +115,15 @@
 </template>
 
 <script>
-import { ref } from "@vue/reactivity";
 import BurgerMenu from "./BurgerMenu.vue";
 import { useStore } from "vuex";
 import { computed } from "@vue/runtime-core";
 import { useRouter } from "vue-router";
 import useLogout from "@/composables/useLogout";
 import Navbar from "@/components/Welcome/Navbar";
-import user from "@/composables/useUser";
+import {user }from "@/composables/useUser";
 import Searchbar from "@/components/SearchBar/SearchBar";
+import { ref } from "@vue/reactivity";
 export default {
   components: { BurgerMenu, useLogout, Navbar, user, Searchbar },
   setup() {

@@ -6,10 +6,7 @@ export default createStore({
     productDetails: {},
     cartItems: new Map(),
     error: null,
-<<<<<<< HEAD
-    searchedItems: "",
-=======
->>>>>>> d3dbbf0ee10cad29ec9f255a443fb48565afdc26
+    searchedItems: ''
   },
   getters: {
     totalSumOfProducts(state) {
@@ -36,11 +33,7 @@ export default createStore({
       let delivery = 100 ;
 
       for (const product of price.values()) {
-<<<<<<< HEAD
-          delivery -= product.count 
-=======
         delivery -= product.count;
->>>>>>> d3dbbf0ee10cad29ec9f255a443fb48565afdc26
       }
       return delivery;
     },
@@ -55,19 +48,6 @@ export default createStore({
     ADD_PRODUCT_TO_CART(state, product) {
       const isProductAlreadyAdded = state.cartItems.get(product.id);
 
-<<<<<<< HEAD
-        if (currentProduct.count > 0) {
-          currentProduct.count = currentProduct.count - 1
-        }
-      },
-      ADD_TO_CART(state, id) {
-        const currentProduct = state.cartItems.get(id);
-        currentProduct.count = currentProduct.count + 1
-      },
-      SEARCH_ITEMS(state,text) {
-      state.searchedItems = text
-      },
-=======
       if (isProductAlreadyAdded) {
         const modifiedProduct = {
           ...product,
@@ -80,7 +60,6 @@ export default createStore({
     },
     DELETE_PRODUCT_IN_CART(state, id) {
       state.cartItems.delete(id);
->>>>>>> d3dbbf0ee10cad29ec9f255a443fb48565afdc26
     },
     DEC_TO_CART(state, id) {
       const currentProduct = state.cartItems.get(id);
@@ -93,6 +72,9 @@ export default createStore({
       const currentProduct = state.cartItems.get(id);
       currentProduct.count = currentProduct.count + 1;
     },
+     SEARCH_ITEMS(state,text) {
+      state.searchedItems = text
+      },
   },
   actions: {
     async getProducts({ commit }) {

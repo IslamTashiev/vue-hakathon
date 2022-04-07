@@ -1,26 +1,4 @@
 <template>
-<<<<<<< HEAD
-  <!-- <div v-if="true"> -->
-  <!-- <Header /> -->
-  <router-view />
-  <!-- <Footer /> -->
-  <!-- </div> -->
-  <!-- <div v-else>
-  <Header />
-  <BurgerMenu />
-</div> -->
-</template>
-
-<script>
-import BurgerMenu from "@/components/Header/BurgerMenu";
-import Header from "@/components/Header/Header.vue";
-import Footer from "@/components/Footer/Footer.vue";
-
-export default {
-  components: { BurgerMenu, Header, Footer },
-  setup() {},
-};
-=======
   <router-view/>
   <router-link to="/admin" v-if="showAdminBtn" class="btn admin__btn">
     <img :src="shieldIcon" alt="">
@@ -51,7 +29,6 @@ export default {
       
   },
 }
->>>>>>> d3dbbf0ee10cad29ec9f255a443fb48565afdc26
 </script>
 
 
@@ -78,8 +55,6 @@ body {
     }
   }
 }
-<<<<<<< HEAD
-=======
 .admin__btn{
   width: 50px;
   height: 50px;
@@ -93,5 +68,4 @@ body {
   justify-content: center;
 }
 
->>>>>>> d3dbbf0ee10cad29ec9f255a443fb48565afdc26
 </style>
