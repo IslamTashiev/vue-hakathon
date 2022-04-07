@@ -70,6 +70,12 @@ export default {
 }
 </script>
 
-<style>
-
+<style lang="scss">
+.item__image{
+    max-height: 226px;
+    img{
+        height: 226px;
+        object-fit: cover;
+    }
+}
 </style>

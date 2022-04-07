@@ -95,7 +95,7 @@ export default {
     color: #ffffff;
   }
   &__arrow {
-    transform: rotate(190deg);
+    transform: rotate(180deg);
   }
 
   @media (max-width: 1340) {
