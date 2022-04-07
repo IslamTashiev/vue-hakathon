@@ -98,7 +98,8 @@ export default {
 
     const enterChat = () => {
       context.emit("successLogin");
-      router.push("/stock");
+      // router.push("/stock");
+      props.TogglePopup("buttonModal")
     };
 
     return {
