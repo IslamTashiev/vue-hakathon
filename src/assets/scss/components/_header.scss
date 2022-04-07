@@ -68,8 +68,8 @@
   &__info {
     display: flex;
 
-    @media (max-width: 1180px) {
-      display: none;
+    @media (max-width: 670px) {
+     display: none;
     }
   }
 
@@ -127,6 +127,10 @@
     display: flex;
     align-items: center;
     gap: 10px;
+    
+    @media (max-width: 1180px) {
+      display: none;
+    }
   }
 
   &__login {
@@ -134,7 +138,7 @@
     align-items: center;
     gap: 10px;
     cursor: pointer;
-    padding-top: 14px;
+    padding: 8px 15px 0px 0px;
     
     &::before {
       content: "";

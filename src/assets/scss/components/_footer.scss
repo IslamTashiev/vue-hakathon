@@ -27,6 +27,12 @@
       padding-left: 0;
       justify-content: center;
     }
+    @media (max-width: 916px) {
+      justify-content: space-around
+    }
+    @media (max-width: 670px) {
+      justify-content: space-between
+    }
   }
 
   &__copyrigth {
@@ -74,6 +80,17 @@
     }
 
     @media (max-width: 985px) {
+      li {
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 18px;
+      }
+    }
+    @media (max-width: 916px) {
+      display: flex;
+      flex-direction: column;
+    }
+    @media (max-width: 670px) {
       display: none;
     }
   }
