@@ -114,12 +114,11 @@ export default {
 
     const popupModals = ref({
       buttonModal: false,
-     
     });
 
     const TogglePopup = (modal) => {
       popupModals.value[modal] = !popupModals.value[modal];
-      document.querySelector("body").style.overflow = "hidden";
+      // document.querySelector("body").style.overflow = "hidden";
     };
 
     return {

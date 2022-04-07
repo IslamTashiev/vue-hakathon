@@ -97,18 +97,16 @@ export default {
 
     const enterChat = () => {
       context.emit("successLogin");
-      props.popupModals.buttonModal = !props.popupModals.buttonModal;
-      document.querySelector("body").style.overflow = "auto";
+      // props.popupModals.buttonModal = !props.popupModals.buttonModal;
+      //   document.body.classList.toggle("_blocked")
+      // document.querySelector("body").style.overflow = "auto";
+      
     };
-    const enterClose = () => {
-      context.emit('closebtn')
-      document.querySelector("body").style.overflow = "auto";
-    }
+
 
     return {
       enterChat,
       showForm,
-      enterClose
     };
   },
 };
