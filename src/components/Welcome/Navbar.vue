@@ -115,6 +115,7 @@ export default {
         showPopup.value = false
       }else{
         showPopup.value = true
+        console.log(user.value.displayName);
       }
     })
 
