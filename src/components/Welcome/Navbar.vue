@@ -28,11 +28,11 @@
           stroke-linejoin="round"
         />
       </svg>
-      <b>User</b>
+      <b>{{userName}}</b>
     </div>
-    <div v-if="showPopup" class="info__popup">
+    <div v-if="userIsTrue" class="info__popup">
       <ul>
-        <li>Эл.адрес....</li>
+        <li>{{userEmail}}</li>
         <li @click="handleClickLogout">Выйти</li>
       </ul>
     </div>
@@ -81,9 +81,9 @@
 <script>
 import useLogout from "@/composables/useLogout";
 import { ref } from "@vue/reactivity";
-import { onMounted } from "@vue/runtime-core";
+import { onMounted, watchEffect } from "@vue/runtime-core";
 import { useRouter } from "vue-router";
-import user from "@/composables/useUser";
+import { user, userName, userEmail } from "@/composables/useUser";
 import ModalWelcome from "@/components/Welcome/ModalWelcome";
 export default {
   components: { user, useLogout, ModalWelcome },
@@ -101,16 +101,25 @@ export default {
       }
     };
     const showPopup = ref(true);
+    const userIsTrue = ref(false)
+
     const handleClickPopup = () => {
-      showPopup.value = !showPopup.value;
+      userIsTrue.value = !userIsTrue.value;
     };
     onMounted(() => {
       document.body.addEventListener("click", (event) => {
         if (!event.path.includes(infoRef.value)) {
-          showPopup.value = false;
+          userIsTrue.value = false;
         }
       });
     });
+    watchEffect(() => {
+      if (!user.value) {
+        showPopup.value = false
+      }else{
+        showPopup.value = true
+      }
+    })
 
     const popupModals = ref({
       buttonModal: false,
@@ -128,6 +137,9 @@ export default {
       infoRef,
       popupModals,
       TogglePopup,
+      userName,
+      userEmail,
+      userIsTrue
     };
   },
 };
@@ -140,12 +152,36 @@ export default {
   gap: 10px;
   cursor: pointer;
   padding-top: 14px;
+  position: relative;
+
+  @media (max-width: 1180px) {
+      margin-top: 100px;
+  }
   &::before {
     content: "";
     height: 100%;
     width: 1px;
     background-color: #635c5a;
     margin: 0 21px 0 32px;
+
+    @media (max-width: 1180px) {
+      width: 0;
+      margin: 0;
+    }
+  }
+  &__login{
+    &::before {
+    content: "";
+    height: 100%;
+    width: 1px;
+    background-color: #635c5a;
+    margin: 0 21px 0 32px;
+
+    @media (max-width: 1180px) {
+      width: 0;
+      margin: 0;
+    }
+  }
   }
   b {
     font-style: normal;
@@ -174,10 +210,10 @@ export default {
 
   &__popup {
     position: absolute;
-    right: 150px;
+    // right: 150px;
     top: 40px;
     margin-top: 15px;
-    background: #403c3b;
+    background: #524f4e;
     // box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.09);
     border-radius: 10px;
     overflow: hidden;

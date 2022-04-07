@@ -1,17 +1,18 @@
 <template>
     <div class="menu" :class="{active: activeMenu}">
         <ul class="menu__list">
-            <li
-                class="nav__menu_item"
+            <router-link
                 v-for="(item,index) in navItems"
                 :key="item"
                 @click="handleActiveItem(index)"
-                :class="{active: activeItem === index}"
+                :to="item.path"
             >
-                {{item}}
-            </li>
+                <li class="nav__menu_item" :class="{active: activeItem === index}">{{item.title}}</li>
+            </router-link>
         </ul>
-        <Contacts />
+        <!-- <Contacts /> -->
+        <NavBar />
+
     </div>
 </template>
 
@@ -19,21 +20,41 @@
 import { ref } from '@vue/reactivity'
 
 import Contacts from "./Contacts"
+import NavBar from "@/components/Welcome/Navbar.vue"
 export default {
-    components: {Contacts},
+    components: {Contacts,NavBar},
     props: ["activeMenu"],
-    setup() {
-        const navItems = ["Холодные закуски","Горячие закуски","Мясные блюда","Супы","Рыбные блюда","Гриль меню","Фирменные блюда","Напитки"]
+    setup(props) {
+        const navItems = [
+            {
+                title: "О ресторане",
+                path: "/"
+            },
+            {
+                title: "Акции",
+                path: "/stock"
+            },
+            {
+                title: "Возврат товара",
+                path: "/delivery"
+            },
+            {
+                title: "Условия доставки",
+                path: "/cart/pay"
+            },
+        
+        ]
         const activeItem = ref(0)
 
         const handleActiveItem = (index) => {
-           activeItem.value = index
+            activeItem.value = index
+            document.body.classList.remove("_blocked")
         }
 
         return{
             navItems,
             activeItem,
-            handleActiveItem
+            handleActiveItem,
         }
     }
 

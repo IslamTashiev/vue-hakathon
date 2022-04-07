@@ -28,10 +28,7 @@
           </ul>
         </div>
         <ul class="footer__menu">
-          <router-link :to="'/'"><li>О ресторане</li></router-link>
-          <router-link :to="'/stock'"> <li>Акции</li></router-link>
-          <li>Возврат товара</li>
-           <router-link :to="'/cart/pay'"><li>Условия доставки</li></router-link>
+           <router-link v-for="item in footerItems" :key="item.path" :to="item.path"><li>{{item.title}}</li></router-link>
         </ul>
       </div>
     </footer>
@@ -39,15 +36,37 @@
 </template>
 
 <script>
+import { ref } from '@vue/reactivity';
 import { useRouter } from "vue-router";
 export default {
   setup() {
     const router = useRouter();
 
+    const footerItems = [
+      {
+        title: "О ресторане",
+        path: "/"
+      },
+      {
+        title: "Акции",
+        path: "/stock"
+      },
+      {
+        title: "Возврат товара",
+        path: "/delivery"
+      },
+      {
+        title: "Условия доставки",
+        path: "/cart/pay"
+      },
+      
+    ]
+
+
     const scrollToTop = () => {
       window.scrollTo(0, 0);
     };
-    return { scrollToTop };
+    return { scrollToTop,footerItems };
   },
 };
 </script>

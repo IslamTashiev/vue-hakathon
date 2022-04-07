@@ -134,6 +134,11 @@ export default {
     const handleActiveMenu = () => {
       burgerMenuActive.value = !burgerMenuActive.value;
       document.body.classList.toggle("_blocked");
+      // if (burgerMenuActive.value) {
+      //   document.body.classList.add("_blocked");
+      // } else{  
+      //   document.body.classList.remove("_blocked");
+      // }
     };
     const totalCount = computed(() => store.getters.totalCountOfProducts);
 

@@ -97,10 +97,8 @@ export default {
 
     const enterChat = () => {
       context.emit("successLogin");
-      // props.popupModals.buttonModal = !props.popupModals.buttonModal;
-      //   document.body.classList.toggle("_blocked")
-      // document.querySelector("body").style.overflow = "auto";
-      
+      // router.push("/stock");
+      props.TogglePopup("buttonModal")
     };
 
 
