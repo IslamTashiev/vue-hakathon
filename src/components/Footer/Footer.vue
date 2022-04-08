@@ -57,7 +57,7 @@ export default {
       },
       {
         title: "Условия доставки",
-        path: "/cart/pay"
+        path: "/delivery"
       },
       
     ]

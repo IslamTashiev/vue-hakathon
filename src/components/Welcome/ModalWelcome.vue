@@ -5,7 +5,7 @@
         <div class="welcome__description">
           <div class="welcome__item">
             <div v-if="showForm">
-              <button class="cart__bt-close btn__welcome"  @click="TogglePopup">
+              <button class="cart__bt-close btn__welcome" @click="TogglePopup">
                 <svg
                   width="16"
                   height="18"
@@ -41,7 +41,7 @@
             </div>
 
             <div v-else>
-              <button class="cart__bt-close btn__welcome"  @click="TogglePopup">
+              <button class="cart__bt-close btn__welcome" @click="TogglePopup">
                 <svg
                   width="16"
                   height="18"
@@ -98,9 +98,8 @@ export default {
     const enterChat = () => {
       context.emit("successLogin");
       // router.push("/stock");
-      props.TogglePopup("buttonModal")
+      props.TogglePopup("buttonModal");
     };
-
 
     return {
       enterChat,
@@ -115,6 +114,10 @@ export default {
   position: relative;
   top: -190px;
   left: 280px;
+  @media (max-width: 670px) {
+      top: -135px;
+    left: 215px;
+  }
 }
 </style>>
 
