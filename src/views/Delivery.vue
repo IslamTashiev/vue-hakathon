@@ -3,7 +3,7 @@
     <Header />
     <Nav />
     <main>
-      <div class="container">
+      <div class="container time__small">
         <Title title="Условия доставки" />
         <div class="delivery__row">
           <div class="delivery__conditions">
@@ -49,30 +49,31 @@ export default {
 
 <style lang="scss" scoped>
 main {
-  margin-top: 30px;
+  margin-top: 10px;
 }
-.delivery{
-    &__row{
-        display:flex;
-        justify-content: space-between;
-    }
-
+.time__small {
+  @media (max-width: 670px) {
+    padding-top: 150px;
+  }
+  @media (max-width: 450px) {
+    padding-top: 120px;
+  }
 }
-
-@media (max-width:726px){
-    .delivery{
-        &__row{
-        flex-wrap: wrap;
-        flex-direction: column-reverse;
-        align-items: center;
-        margin-bottom: 40px; 
-       
-    }
-       
-    }
-    
+.delivery {
+  &__row {
+    display: flex;
+    justify-content: space-between;
+  }
 }
 
-
-
+@media (max-width: 726px) {
+  .delivery {
+    &__row {
+      flex-wrap: wrap;
+      flex-direction: column-reverse;
+      align-items: center;
+      margin-bottom: 40px;
+    }
+  }
+}
 </style>

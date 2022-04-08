@@ -31,13 +31,23 @@ export default {
 <style lang="scss">
 .pay{
     padding: 50px 0 90px;
-
+   
     .go__back{
         margin-top: 60px;
     }
 
     &__title{
         margin: 36px 0 56px;
+    }
+}
+.container.small {
+   padding-top: 80px;
+     @media (max-width: 670px) {
+        padding-top: 150px;
+    }
+    @media (max-width: 450px) 
+     {
+    padding-top: 125px;
     }
 }
 </style>

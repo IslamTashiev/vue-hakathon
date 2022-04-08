@@ -7,6 +7,13 @@
     @media (max-width: 768px) {
       margin: 25px auto 50px;
     }
+    @media (max-width: 670px) {
+      padding-top: 180px;
+  }
+  @media (max-width: 450px) 
+   {
+  padding-top: 160px;
+  }
   }
   &__header-content {
     &_up {
@@ -388,8 +395,12 @@
     align-items: center;
     cursor: pointer;
     gap: 40px;
+    justify-content: flex-start;
+    width: 100%;
     @media (max-width: 483.99px) {
      gap: 0px;
+     justify-content: flex-start;
+     width: 100%;
     }
   }
 
@@ -549,13 +560,12 @@
         top: 180px;
       }
       @media (max-width: 670px) {
-        top: 145px;
+        top: 245px;
       }
       @media (max-width: 450px) {
-        top: 125px;
+        top: 215px;
       }
       @media (max-width: 426px) {
-        top: 110px;
         left: 15px;
       }
     }
