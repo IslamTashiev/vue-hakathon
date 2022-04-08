@@ -6,7 +6,8 @@ export default createStore({
     productDetails: {},
     cartItems: new Map(),
     error: null,
-    searchedItems: ''
+    searchedItems: '',
+    category:0,
   },
   getters: {
     totalSumOfProducts(state) {
@@ -41,6 +42,9 @@ export default createStore({
   mutations: {
     SET_PRODUCTS(state, data) {
       state.products = data;
+    },
+    SET_CATEGORY(state,value){
+      state.category=value
     },
     SET_DETAIL_PRODUCT(state, data) {
       state.productDetails = data;
@@ -96,6 +100,16 @@ export default createStore({
         body: JSON.stringify(product),
       });
       dispatch("getProducts");
+    },
+    async setCategory(context,value) { 
+
+      const query=value!==null?`?category=${value}`:''
+
+      const response = await fetch(`http://localhost:3000/products${query}`)
+      const data = await response.json();
+
+      context.commit("SET_PRODUCTS", data);
+      context.commit("SET_CATEGORY", value);
     },
   },
 });
