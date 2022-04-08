@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container stock__small">
     <Title title="АКЦИИ" />
   </div>
    <hr />
@@ -55,5 +55,15 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss" scoped>
+.stock__small {
+   padding-top: 80px;
+     @media (max-width: 670px) {
+        padding-top: 130px;
+    }
+    @media (max-width: 450px) 
+     {
+    padding-top: 115px;
+    }
+}
 </style>

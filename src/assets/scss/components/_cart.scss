@@ -7,6 +7,13 @@
     @media (max-width: 768px) {
       margin: 25px auto 50px;
     }
+    @media (max-width: 670px) {
+      padding-top: 180px;
+  }
+  @media (max-width: 450px) 
+   {
+  padding-top: 160px;
+  }
   }
   &__header-content {
     &_up {
