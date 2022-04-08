@@ -1,13 +1,15 @@
 <template>
-  <div class="container">
+  <div class="stock-mt">
+    <div class="container">
     <Title title="АКЦИИ" />
   </div>
    <hr />
   <div class="stock__container">
-      <div class="stock__items">
-        <StockItem v-for="item in stocks" :key="item.id" :item="item" />
-      </div>
+    <div class="stock__items">
+      <StockItem v-for="item in stocks" :key="item.id" :item="item" />
     </div>
+  </div>
+  </div>
 </template>
 
 <script>
@@ -39,4 +41,7 @@ export default {
 </script>
 
 <style>
+.stock-mt{
+  margin-top: 120px;
+}
 </style>

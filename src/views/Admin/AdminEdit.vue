@@ -2,17 +2,17 @@
     <div class="admin__page">
         <AdminMenu />
         <div>
-            <p>Выберите элемент редоктирования</p>
-            
+            <AdminEdit />
         </div>
     </div>
 </template>
 
 <script>
 import AdminMenu from "@/components/Admin/AdminMenu"
+import AdminEdit from "@/components/Admin/AdminEdit"
 
 export default {
-    components: {AdminMenu}
+    components: {AdminMenu,AdminEdit}
 }
 </script>
 

@@ -61,6 +61,11 @@ const routes = [
     name: "AdminEdit",
     component: AdminEdit,
   },
+  {
+    path: "/admin/edit/:id",
+    name: "sdf",
+    component: {},
+  },
 ];
 
 const router = createRouter({

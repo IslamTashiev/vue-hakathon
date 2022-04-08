@@ -7,6 +7,8 @@ export default createStore({
     productDetails: {},
     cartItems: new Map(),
     error: null,
+    searchedItems: "",
+    category: 0,
   },
   getters: {
     totalSumOfProducts(state) {
@@ -30,7 +32,7 @@ export default createStore({
 
     totalDeliveryOfProducts(state) {
       const price = state.cartItems;
-      let delivery = 6564;
+      let delivery = 100;
 
       for (const product of price.values()) {
         delivery -= product.count;
@@ -44,6 +46,9 @@ export default createStore({
     },
     SET_PROMOTION(state, data) {
       state.promotions = data;
+    },
+    SET_CATEGORY(state, value) {
+      state.category = value;
     },
     SET_DETAIL_PRODUCT(state, data) {
       state.productDetails = data;
@@ -74,6 +79,9 @@ export default createStore({
     ADD_TO_CART(state, id) {
       const currentProduct = state.cartItems.get(id);
       currentProduct.count = currentProduct.count + 1;
+    },
+    SEARCH_ITEMS(state, text) {
+      state.searchedItems = text;
     },
   },
   actions: {
@@ -111,5 +119,19 @@ export default createStore({
       });
       dispatch("getPromotion");
     },
+    async setCategory(context, value) {
+      const query = value !== null ? `?category=${value}` : "";
+
+      const response = await fetch(`http://localhost:3000/products${query}`);
+      const data = await response.json();
+
+      context.commit("SET_PRODUCTS", data);
+      context.commit("SET_CATEGORY", value);
+    },
+    async deleteProduct ({commit},id) {
+      await fetch(`http://localhost:3000/products/${id}`, {
+        method: "DELETE"
+      })
+    }
   },
 });

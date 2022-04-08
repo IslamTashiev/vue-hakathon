@@ -69,10 +69,13 @@
     </div>
     <div><h4>Войти</h4></div>
   </div>
-  <ModalWelcome
-    v-if="popupModals.buttonModal"
-    :TogglePopup="() => TogglePopup('buttonModal')"
-  />
+  <Teleport to="body">
+    <ModalWelcome
+      v-if="popupModals.buttonModal"
+      :TogglePopup="() => TogglePopup('buttonModal')"
+      :popupModals="popupModals"
+    />
+  </Teleport>
 </template>
 
 <script>
@@ -125,6 +128,7 @@ export default {
 
     const TogglePopup = (modal) => {
       popupModals.value[modal] = !popupModals.value[modal];
+      // document.querySelector("body").style.overflow = "hidden";
     };
 
     return {
@@ -150,10 +154,8 @@ export default {
   cursor: pointer;
   padding-top: 14px;
   position: relative;
-
-  @media (max-width: 1180px) {
-      margin-top: 100px;
-  }
+padding: 8px 15px 0px 0px;
+ 
   &::before {
     content: "";
     height: 100%;
@@ -207,15 +209,18 @@ export default {
 
   &__popup {
     position: absolute;
-    // right: 150px;
     top: 40px;
+    left: 30px;
     margin-top: 15px;
     background: #524f4e;
-    // box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.09);
     border-radius: 10px;
     overflow: hidden;
     padding: 10px 0;
     width: 150px;
+     @media (max-width: 1180px) {
+       top: 40px;
+    left: 0px;
+  }
     &::after {
       position: absolute;
       content: "";

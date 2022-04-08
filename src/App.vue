@@ -46,15 +46,17 @@ export default {
 
 body {
   background: linear-gradient(360deg, #211f20 0%, #44403f 100%) no-repeat;
-
+  // padding-top: 100px;
   &._blocked {
     overflow: hidden;
   }
 
   &.welcome {
-  height: 100vh;
-  overflow-y: hidden;
-}
+    height: 100vh;
+    body {
+      overflow-y: hidden;
+    }
+  }
 }
 .admin__btn{
   width: 50px;

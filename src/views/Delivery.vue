@@ -45,22 +45,34 @@ export default {
 };
 </script>
 
+
+
 <style lang="scss" scoped>
 main {
   margin-top: 30px;
 }
-.delivery {
-  &__row {
-    display: flex;
-    justify-content: space-between;
-  }
-  @media (max-width: 726px) {
+.delivery{
     &__row{
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+        display:flex;
+        justify-content: space-between;
     }
-  }
 
 }
+
+@media (max-width:726px){
+    .delivery{
+        &__row{
+        flex-wrap: wrap;
+        flex-direction: column-reverse;
+        align-items: center;
+        margin-bottom: 40px; 
+       
+    }
+       
+    }
+    
+}
+
+
+
 </style>

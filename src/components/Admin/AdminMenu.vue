@@ -1,5 +1,5 @@
 <template>
-<div class="admin__menu" :class="{active: activeMenu}">
+<div class="admin__menu" :class="{active: !activeMenu}">
     <svg @click="handleActiveMenu" class="admin__arrow" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M15 30L25 20L15 10" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
     </svg>
@@ -96,6 +96,9 @@ export default {
     }
     &__menu {
         // margin-right: 80px;
+        // margin-top: 0;
+        // top: 0;
+        // position: fixed;
         height: 100vh;
         width: 260px;
         padding: 20px 7px;
