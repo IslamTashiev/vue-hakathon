@@ -27,7 +27,7 @@ import { computed, onMounted } from "@vue/runtime-core";
 
 export default {
   components: { Title, ProductItem, ProductItemSceleton },
-  props: ["title", "className",],
+  props: ["title", "className","products"],
   setup() {
     const store = useStore();
 
