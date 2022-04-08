@@ -388,8 +388,12 @@
     align-items: center;
     cursor: pointer;
     gap: 40px;
+    justify-content: flex-start;
+    width: 100%;
     @media (max-width: 483.99px) {
      gap: 0px;
+     justify-content: flex-start;
+     width: 100%;
     }
   }
 

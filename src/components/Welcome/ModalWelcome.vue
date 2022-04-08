@@ -118,6 +118,10 @@ export default {
       top: -135px;
     left: 215px;
   }
+  @media (max-width: 350px) {
+      top: -135px;
+    left: 195px;
+  }
 }
 </style>>
 
