@@ -1,6 +1,12 @@
 .detail {
   &__card {
     margin-top: 40px;
+    @media (max-width: 670px) {
+      padding-top: 170px;
+    }
+    @media (max-width: 450px) {
+      padding-top: 140px;
+    }
   }
 }
 .go {
@@ -120,10 +126,13 @@
     align-items: center;
     margin: 22px 0 30px;
     gap: 25px;
-
+    @media (max-width: 519.99px) {
+      flex-direction: column-reverse;
+     }
     @media (max-width: 425.99px) {
       width: 100%;
       justify-content: center;
+      flex-direction: row;
     }
   }
 
