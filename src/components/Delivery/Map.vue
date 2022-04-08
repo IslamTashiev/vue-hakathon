@@ -24,4 +24,12 @@ export default defineComponent({
 </script>
 
 <style lang="scss"  >
+
+@media (max-width:726px){
+  .delivery__map{
+        margin-bottom:40px;
+        width:100%;
+  }
+       
+}
 </style>

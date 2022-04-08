@@ -97,47 +97,48 @@ export default {
   &__arrow {
     transform: rotate(180deg);
   }
+
   @media (max-width: 1340) {
-    .delivery {
       &__wrapper {
         width: 70%;
       }
       &__conditions {
         max-width: 70%;
       }
-    }
   }
   @media (max-width: 1024px) {
-    .delivery {
       &__quality {
         text-align: justify;
       }
-    }
   }
   @media (max-width: 726px) {
-      &__wrapper {
-        flex-wrap: wrap;
-        flex-direction: column-reverse;
-      }
-
-      &__condition_text {
-        min-width: 100%;
-      }
-
-      &__conditions {
+     &__conditions{
         width: 100%;
+        margin-top: 10px;
       }
-      &__wrap {
-        flex-direction: column;
+      &__condition_item {
+        max-height: 55px;
+        align-items: center;
       }
-      &__time {
-        margin-bottom: 20px;
+      &__condition_text {
+        min-width: 85%;
+        min-height: 100px;
       }
-      &__text {
-        max-width: 100%;
-        max-height: 100%;
-        margin-bottom: 40px;
+      &__quality {
+        padding: 21px 14px 22px 20px;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 15px;
       }
-  }
+      &__condition_item {
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 22px;
+      }
+    }
+    img {
+      max-width: 14px;
+      max-height: 7px;
+    }
 }
 </style>

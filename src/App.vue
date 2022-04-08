@@ -49,9 +49,11 @@ body {
   }
 
   &.welcome {
-  height: 100vh;
-  overflow-y: hidden;
-}
+    height: 100vh;
+    body {
+      overflow-y: hidden;
+    }
+  }
 }
 .admin__btn{
   width: 50px;

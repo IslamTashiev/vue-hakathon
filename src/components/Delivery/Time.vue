@@ -69,4 +69,35 @@ export default {
     font-size: 22px;
 }
 }
+@media (max-width:726px){
+    .delivery{
+        &__wrap{
+            display:flex;
+            flex-direction: column;
+        }
+        &__text{
+            margin-bottom:40px;
+        }
+        &__row{
+            margin-bottom:15px;
+        }
+        &__order,
+        &__text{
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 25px;
+       
+     }
+        &__time_title {
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 35px;
+     }
+    }     
+     }
+     @media (max-width:726px){
+         .delivery__text{
+             margin-bottom: 40px;
+         }
+     }
 </style>

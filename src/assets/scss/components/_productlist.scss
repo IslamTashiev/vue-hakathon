@@ -124,7 +124,15 @@
     }
     svg {
       transition: 0.3s all ease;
-      margin-left: 12px;
+      margin-left: 5px;
+      transform: rotate(180deg);
     }
+  //   span::after {
+  //     content: "";
+  //     width: 1px;
+  //     height: 32px;
+  //     background: rgba(255, 255, 255, 0.3);
+  //     margin: 0 15px 0 20px;
+  // }
   }
 }
