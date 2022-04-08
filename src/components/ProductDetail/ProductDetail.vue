@@ -61,5 +61,7 @@ export default {
 </script>
 
 <style>
-
+.detail__card{
+    margin-top: 70px;
+}
 </style>

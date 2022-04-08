@@ -3,6 +3,7 @@ import { createStore } from "vuex";
 export default createStore({
   state: {
     products: [],
+    promotions: [],
     productDetails: {},
     cartItems: new Map(),
     error: null,
@@ -40,6 +41,9 @@ export default createStore({
   mutations: {
     SET_PRODUCTS(state, data) {
       state.products = data;
+    },
+    SET_PROMOTION(state, data) {
+      state.promotions = data;
     },
     SET_DETAIL_PRODUCT(state, data) {
       state.productDetails = data;
@@ -79,6 +83,12 @@ export default createStore({
 
       commit("SET_PRODUCTS", data);
     },
+    async getPromotion({ commit }) {
+      const response = await fetch("http://localhost:3000/promotion");
+      const data = await response.json();
+
+      commit("SET_PROMOTION", data);
+    },
     async getProductDetails({ commit }, id) {
       const response = await fetch(`http://localhost:3000/products/${id}`);
       const data = await response.json();
@@ -92,6 +102,14 @@ export default createStore({
         body: JSON.stringify(product),
       });
       dispatch("getProducts");
+    },
+    async addPromotion({ dispatch }, product) {
+      await fetch("http://localhost:3000/promotion", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(product),
+      });
+      dispatch("getPromotion");
     },
   },
 });

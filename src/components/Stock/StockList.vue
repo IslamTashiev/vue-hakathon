@@ -5,9 +5,7 @@
    <hr />
   <div class="stock__container">
       <div class="stock__items">
-        <StockItem v-for="item in items" :key="item.id" :item="item" />
-        <StockItem v-for="item in items" :key="item.id" :item="item" />
-        <StockItem v-for="item in items" :key="item.id" :item="item" />
+        <StockItem v-for="item in stocks" :key="item.id" :item="item" />
       </div>
     </div>
 </template>
@@ -19,37 +17,22 @@ import StockItem from "./StockItem.vue";
 import StockImgMeat from "@/assets/images/stock-meat.svg";
 import StockImgKombo from "@/assets/images/stock-kombo.svg";
 import StockImgSyrniki from "@/assets/images/stock-syrniki.svg";
+import { computed, onMounted } from '@vue/runtime-core';
+import { useStore } from 'vuex';
 
 export default {
   components: { Title, StockItem },
   setup() {
-    const items = ref([
-      {
-        id: 2,
-        tatelName: "Выгодное комбо c напитками",
-        image: StockImgKombo,
-      },
-      {
-        id: 1,
-        tatelName: "Без мяса? Здесь!",
-        image: StockImgMeat,
-      },
-      {
-        id: 3,
-        tatelName: "Сырный бортик",
-        image: StockImgSyrniki,
-      },
-    ]);
 
-    const handleSubmit = (items) => {
-      items.value.sort(() => 0.5 - Math.random());
-      console.log(items.value);
-      // .sort(() => Math.random() - 0.5
-    };
+    const store = useStore()
+
+    const stocks = computed(() => store.state.promotions)
+    onMounted(() => {
+      store.dispatch("getPromotion")
+    })
 
     return {
-      items,
-      handleSubmit,
+      stocks
     };
   },
 };

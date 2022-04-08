@@ -8,6 +8,7 @@ import Delivery from "../views/Delivery.vue";
 import Admin from "../views/Admin/Admin.vue";
 import AdminAddProduct from "../views/Admin/AdminAddProduct.vue";
 import AdminAddPromotion from "../views/Admin/AdminAddPromotion.vue";
+import AdminEdit from "../views/Admin/AdminEdit.vue";
 
 const routes = [
   {
@@ -54,6 +55,11 @@ const routes = [
     path: "/admin/add/stock",
     name: "AdminAddPromotion",
     component: AdminAddPromotion,
+  },
+  {
+    path: "/admin/edit",
+    name: "AdminEdit",
+    component: AdminEdit,
   },
 ];
 

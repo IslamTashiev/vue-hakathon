@@ -2,20 +2,17 @@
     <div class="stock__items col-4">
         <div class="stock__item">
           <div class="stock__image">
-            <img :src="item.image" />
+            <img :src="item.imageURL" />
           </div>
           <div class="stock__description">
             <div class="stock__header">
-              <div class="stock__title">{{ item.tatelName }}</div>
+              <div class="stock__title">{{ item.title }}</div>
             </div>
             <div class="stock__subtitle">
-              Самое время попробовать «Сырную» пиццу, «Маргариту», пиццу «Овощи
-              и грибы», Пасту Четыре сыра, Томатный суп с гренками, Грибной
-              Стартер, Рулетики с сыром, Картофель из печи, Картофельные оладьи
-              или Греческий салат. Выберите свой вкус!
+              {{item.description}}
             </div>
             <div class="stock__footer">
-              <div class="stock__data">до 31 июля.</div>
+              <div class="stock__data">{{item.date}}</div>
             </div>
           </div>
         </div>
@@ -36,5 +33,15 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
+.stock__item{
+  width: 100%;
+}
+.stock__image{
+  height: 180px;
+  img{
+    height: 180px;
+    object-fit: cover;
+  }
+}
 </style>

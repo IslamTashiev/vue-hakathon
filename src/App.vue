@@ -3,6 +3,9 @@
   <router-link to="/admin" v-if="showAdminBtn" class="btn admin__btn">
     <img :src="shieldIcon" alt="">
   </router-link>
+  <router-link to="/" v-if="showAdminBtn" class="btn admin__btn home">
+    <!-- <img :src="shieldIcon" alt=""> --> Home
+  </router-link>
 </template>
 
 <script>
@@ -64,6 +67,9 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  &.home{
+    right: 80px;
+  }
 }
 
 </style>

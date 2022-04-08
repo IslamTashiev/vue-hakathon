@@ -21,7 +21,8 @@ export default {
 
 <style lang="scss">
 .pay__form{
-     
+     display: flex;
+     flex-direction: column;
     .pay__section{
         background: linear-gradient(90deg, #494544 0%, #504B4A 100%);
         border-radius: 10px;

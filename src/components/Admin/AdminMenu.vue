@@ -53,7 +53,7 @@ export default {
             {
                 title: "Редактировать",
                 iconPath: editIcon,
-                path: "/admin/edit/productId="
+                path: "/admin/edit"
             },
             {
                 title: "Архив",
