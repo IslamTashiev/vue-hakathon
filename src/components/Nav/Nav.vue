@@ -21,8 +21,9 @@ import { useStore } from "vuex";
 import { ref } from "@vue/reactivity";
 import { computed } from "@vue/runtime-core";
 export default {
-  setup() {
+  setup(props, context) {
     const navItems = [
+      "Все",
       "Холодные закуски",
       "Горячие закуски",
       "Мясные блюда",
@@ -32,6 +33,7 @@ export default {
       "Фирменные блюда",
       "Напитки",
     ];
+    // context.emit(navItems)
     const store = useStore();
     const activeItem = ref(computed(() => store.state.category));
 

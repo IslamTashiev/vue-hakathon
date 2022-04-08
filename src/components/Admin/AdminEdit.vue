@@ -48,7 +48,7 @@ export default {
     gap: 30px;
     max-width: 1096px !important;
     margin: 0 auto;
-    justify-content: center;
+    justify-content: start;
     background: linear-gradient(90deg, #494544 0%, #504B4A 100%);
     border-radius: 10px;
     padding: 20px 35px;

@@ -8,6 +8,7 @@
     display: flex;
     gap: 50px;
     overflow: auto;
+    text-align: center;
     &::-webkit-scrollbar {
       height: 0;
     }

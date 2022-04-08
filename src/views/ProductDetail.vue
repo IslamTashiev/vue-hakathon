@@ -1,7 +1,7 @@
 <template>
 <div class="wrapper">
     <Header />
-    <Nav />
+    <!-- <Nav /> -->
     <main>
         <ProductDetail />
         <ProductList title="С ЭТИМ ТОВАРОМ ПОКУПАЮТ" />

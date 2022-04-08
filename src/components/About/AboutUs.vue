@@ -14,7 +14,7 @@
             посадкой на 200 человек, сказочный детский домик и бассейн.
           </p>
 
-          <router-link to="/product/:id">
+          <router-link to="/">
             <button class="btn about__btn">
               <svg
                 width="24"

@@ -55,7 +55,7 @@ export default {
 .edit__item{
     text-align: center;
     position: relative;
-    border: 1px solid rgb(81, 75, 75);
+    border: 2px solid rgba(114, 114, 114, 0.301);
     padding: 10px;
     border-radius: 10px;
 

@@ -69,13 +69,13 @@
     </div>
     <div><h4>Войти</h4></div>
   </div>
-  <Teleport to="body">
+  <!-- <Teleport to="body"> -->
     <ModalWelcome
       v-if="popupModals.buttonModal"
       :TogglePopup="() => TogglePopup('buttonModal')"
       :popupModals="popupModals"
     />
-  </Teleport>
+  <!-- </Teleport> -->
 </template>
 
 <script>
@@ -216,7 +216,7 @@ padding: 8px 15px 0px 0px;
     border-radius: 10px;
     overflow: hidden;
     padding: 10px 0;
-    width: 150px;
+    // max-width: 150px;
      @media (max-width: 1180px) {
        top: 40px;
     left: 0px;

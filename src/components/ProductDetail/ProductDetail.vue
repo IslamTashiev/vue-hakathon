@@ -75,12 +75,21 @@
       </div>
     </div>
   </section>
+  <ModalWelcome
+      v-if="popupModals.buttonModal"
+      :TogglePopup="() => TogglePopup('buttonModal')"
+      :popupModals="popupModals"
+    />
 </template>
 
 <script>
-import { computed } from "@vue/runtime-core";
+import ModalWelcome from "@/components/Welcome/ModalWelcome";
+import { computed, ref } from "@vue/runtime-core";
 import { useStore } from "vuex";
+import {user} from "@/composables/useUser"
 export default {
+  components: {ModalWelcome},
+  // props: [],
   setup(props) {
     const store = useStore();
 
@@ -91,13 +100,33 @@ export default {
     );
 
     const handleAddProductToCart = () => {
-      store.commit("ADD_PRODUCT_TO_CART", product.value);
+      if (!user.value) {
+        TogglePopup("buttonModal")
+      }else{
+        store.commit("ADD_PRODUCT_TO_CART", product.value);
+      }
     };
+
+    const popupModals = ref({
+      buttonModal: false,
+    });
+
+    const TogglePopup = (modal) => {
+      popupModals.value[modal] = !popupModals.value[modal];
+      // document.querySelector("body").style.overflow = "hidden";
+    };
+
+    // const handleClick = () => {
+       
+    // }
 
     return {
       product,
       handleAddProductToCart,
       addedProduct,
+      popupModals,
+      TogglePopup,
+      // handleClick
     };
   },
 };
@@ -107,14 +136,14 @@ export default {
 /* .detail__card{
     margin-top: 220px;
 } */
-.card-image{
+/* .card-image{
   width: 50%;
-}
+} */
 .card {
   position: relative;
 }
 .cart__added-product {
-  top: -30px;
-  left: -30px;
+  top: -15px;
+  left: -15px;
 }
 </style>
